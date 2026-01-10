@@ -643,13 +643,14 @@ export default function Home() {
                 },
               ].map((step, i) => {
                 const isVisible = visibleSections["timeline"];
+                const isLeft = i % 2 === 0;
 
                 return (
                   <div
                     key={i}
-                    className={`relative flex items-center justify-center transition-all duration-700 ${
+                    className={`relative flex items-center transition-all duration-700 ${
                       isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                    }`}
+                    } ${isLeft ? "md:justify-start" : "md:justify-end"} justify-center`}
                     style={{ transitionDelay: `${i * 100}ms` }}
                   >
                     {/* Timeline Dot */}
@@ -657,11 +658,16 @@ export default function Home() {
                       className="timeline-dot absolute"
                       style={{
                         top: "50%",
+                        transform: "translate(-50%, -50%)",
                       }}
                     />
 
-                    {/* Timeline Card - Centered */}
-                    <div className="w-full max-w-2xl px-6 md:px-0 pl-12 md:pl-0">
+                    {/* Timeline Card - Alternating Left/Right */}
+                    <div
+                      className={`w-full max-w-2xl px-6 md:px-0 ${
+                        isLeft ? "md:pr-8 md:pl-0 pl-12" : "md:pl-8 md:pr-0 pl-12"
+                      }`}
+                    >
                       <div className="glassmorphism rounded-2xl p-8 md:p-10">
                         <div className="flex items-center gap-4 mb-6">
                           <div className="w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center">
@@ -1088,8 +1094,8 @@ export default function Home() {
 
           {/* Row 1 - Scrolling Left */}
           <div className="relative mb-6">
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-transparent via-transparent to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-transparent via-transparent to-transparent z-10 pointer-events-none" />
             <div className="flex animate-scroll-left">
               {[...teamMembers.slice(0, 6), ...teamMembers.slice(0, 6)].map(
                 (member, i) => (
@@ -1115,8 +1121,8 @@ export default function Home() {
 
           {/* Row 2 - Scrolling Right */}
           <div className="relative">
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-transparent via-transparent to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-transparent via-transparent to-transparent z-10 pointer-events-none" />
             <div className="flex animate-scroll-right">
               {[...teamMembers.slice(6), ...teamMembers.slice(6)].map(
                 (member, i) => (
