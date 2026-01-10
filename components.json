@@ -1,4 +1,9 @@
-{
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Divyam0207914/HackTheChain4.0-V2.git
+git push -u origin main{
   "$schema": "https://ui.shadcn.com/schema.json",
   "style": "new-york",
   "rsc": true,
