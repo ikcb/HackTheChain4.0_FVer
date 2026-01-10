@@ -662,10 +662,24 @@ export default function Home() {
                       }}
                     />
 
+                    {/* Connector Line from Center to Card */}
+                    <div
+                      className="hidden md:block absolute top-1/2 h-px opacity-30"
+                      style={{
+                        left: isLeft ? "calc(50% - 5rem)" : "50%",
+                        width: "5rem",
+                        background: isLeft
+                          ? "linear-gradient(to left, rgba(168, 85, 247, 0.25), rgba(168, 85, 247, 0.15), transparent)"
+                          : "linear-gradient(to right, rgba(168, 85, 247, 0.25), rgba(168, 85, 247, 0.15), transparent)",
+                        transform: "translateY(-50%)",
+                        zIndex: 1,
+                      }}
+                    />
+
                     {/* Timeline Card - Alternating Left/Right */}
                     <div
                       className={`w-full max-w-2xl px-6 md:px-0 ${
-                        isLeft ? "md:pr-8 md:pl-0 pl-12" : "md:pl-8 md:pr-0 pl-12"
+                        isLeft ? "md:pr-12 md:pl-0 pl-12" : "md:pl-12 md:pr-0 pl-12"
                       }`}
                     >
                       <div className="glassmorphism rounded-2xl p-8 md:p-10">
