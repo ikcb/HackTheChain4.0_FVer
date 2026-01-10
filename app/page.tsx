@@ -336,7 +336,7 @@ export default function Home() {
             </Link>
           </nav>
           <div className="flex gap-3">
-            <button className="px-5 py-2.5 text-sm font-medium bg-gradient-to-r from-accent via-accent to-accent/80 text-black rounded-full hover:shadow-lg hover:shadow-accent/40 hover:scale-105 transition-all duration-300 font-semibold">
+            <button className="px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-accent via-accent to-accent/80 text-black rounded-full hover:shadow-lg hover:shadow-accent/40 hover:scale-105 transition-all duration-300">
               Register Now
             </button>
           </div>
@@ -442,7 +442,7 @@ export default function Home() {
       <section
         id="about"
         className="section-bg-image py-32 px-6 relative overflow-hidden isolate"
-        style={{ backgroundImage: "url('/images/back1.png')" }}
+        style={{ backgroundImage: "url('/images/back2.png')" }}
       >
         {/* Overlay - contained within section */}
         <div className="absolute inset-0 bg-black/70 z-0" />
@@ -502,9 +502,15 @@ export default function Home() {
       </section>
 
       {/* Domains/Tracks Section */}
-      <section id="domains" className="py-32 px-6 relative bg-black">
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black to-black pointer-events-none" />
-        <div className="max-w-7xl mx-auto">
+      <section
+        id="domains"
+        className="section-bg-image py-32 px-6 relative overflow-hidden isolate"
+        style={{ backgroundImage: "url('/images/back2.png')" }}
+      >
+        {/* Overlay - contained within section */}
+        <div className="absolute inset-0 bg-black/70 z-0" />
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black to-black pointer-events-none z-10" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <div
             className={`text-center mb-20 transition-all duration-1000 ${
               visibleSections["domains"]
@@ -587,10 +593,13 @@ export default function Home() {
       {/* Timeline Section */}
       <section
         id="timeline"
-        className="py-32 px-6 relative min-h-screen flex items-center bg-black"
+        className="section-bg-image py-32 px-6 relative min-h-screen flex items-center overflow-hidden isolate"
+        style={{ backgroundImage: "url('/images/back2.png')" }}
       >
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black to-black pointer-events-none" />
-        <div className="max-w-6xl mx-auto w-full">
+        {/* Overlay - contained within section */}
+        <div className="absolute inset-0 bg-black/70 z-0" />
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black to-black pointer-events-none z-10" />
+        <div className="max-w-6xl mx-auto w-full relative z-10">
           <div
             className={`text-center mb-20 transition-all duration-1000 ${
               visibleSections["timeline"]
@@ -608,40 +617,35 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="relative min-h-[600px] md:min-h-[700px]">
+          <div className="relative h-[600px] md:h-[700px]">
             {/* Vertical Timeline Line - Fixed */}
             <div className="timeline-line" />
 
-            {/* Timeline Events Container */}
-            <div className="relative">
+            {/* Timeline Events Container - Fixed Height Slider */}
+            <div className="relative h-full">
               {[
                 {
                   title: "Round 1",
                   date: "21-02-2026",
-                  time: "7:00 PM",
-                  desc: "Registration starts for Round 1 – HackTheChain 4.0",
+                  desc: "Registration starts for Round 1 HackTheChain 3.0",
                 },
                 {
                   title: "Round 1 Result",
                   date: "23-02-2026",
-                  time: "1:00 AM",
                   desc: "Round 1 result declaration",
                 },
                 {
                   title: "Round 2",
                   date: "23-02-2026",
-                  time: "9:00 AM",
                   desc: "Presentation round starts",
                 },
                 {
                   title: "Final Result",
                   date: "23-02-2026",
-                  time: "Evening",
-                  desc: "Winner announcement and closing ceremony",
+                  desc: "Winner Announcement and Closing Ceremony",
                 },
               ].map((step, i) => {
                 const isActive = activeTimelineIndex === i;
-                const isVisible = visibleSections["timeline"];
 
                 return (
                   <div
@@ -686,11 +690,6 @@ export default function Home() {
                             <div className="text-accent font-semibold text-base md:text-lg">
                               {step.date}
                             </div>
-                            {step.time && (
-                              <div className="text-accent/70 text-sm">
-                                {step.time}
-                              </div>
-                            )}
                           </div>
                         </div>
                         <h3 className="font-display font-bold text-3xl md:text-4xl mb-4 text-white neon-text-glow">
@@ -798,9 +797,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="prizes" className="py-32 px-6 relative bg-black">
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black to-black pointer-events-none" />
-        <div className="max-w-7xl mx-auto">
+      <section
+        id="prizes"
+        className="section-bg-image py-32 px-6 relative overflow-hidden isolate"
+        style={{ backgroundImage: "url('/images/back2.png')" }}
+      >
+        {/* Overlay - contained within section */}
+        <div className="absolute inset-0 bg-black/70 z-0" />
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black to-black pointer-events-none z-10" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <div
             className={`text-center mb-20 transition-all duration-1000 ${
               visibleSections["prizes"]
@@ -900,7 +905,7 @@ export default function Home() {
       <section
         id="rules"
         className="section-bg-image py-32 px-6 relative overflow-hidden isolate"
-        style={{ backgroundImage: "url('/images/back3.png')" }}
+        style={{ backgroundImage: "url('/images/back2.png')" }}
       >
         {/* Overlay - contained within section */}
         <div className="absolute inset-0 bg-black/70 z-0" />
@@ -1002,7 +1007,7 @@ export default function Home() {
       <section
         id="judging"
         className="section-bg-image py-32 px-6 relative overflow-hidden isolate"
-        style={{ backgroundImage: "url('/images/back1.png')" }}
+        style={{ backgroundImage: "url('/images/back2.png')" }}
       >
         {/* Overlay - contained within section */}
         <div className="absolute inset-0 bg-black/70 z-0" />
@@ -1070,11 +1075,11 @@ export default function Home() {
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-purple-600 rounded-2xl opacity-0 group-hover:opacity-30 blur transition-all duration-500" />
-                  <div className="relative p-8 lg:p-10 border border-accent/20 hover:border-accent/50 rounded-2xl glassmorphism h-full transition-all duration-500">
-                    <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-6 group-hover:bg-accent/20 group-hover:border-accent/40 group-hover:scale-110 transition-all duration-300">
+                  <div className="relative py-6 lg:py-7 px-8 lg:px-10 border border-accent/20 hover:border-accent/50 rounded-2xl glassmorphism h-full transition-all duration-500">
+                    <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/20 group-hover:border-accent/40 group-hover:scale-110 transition-all duration-300">
                       <Icon className="w-8 h-8 lg:w-10 lg:h-10 text-accent" />
                     </div>
-                    <h3 className="font-display font-bold text-xl lg:text-2xl mb-3 text-white">
+                    <h3 className="font-display font-bold text-xl lg:text-2xl mb-2 text-white">
                       {criteria.title}
                     </h3>
                     <p className="text-muted-foreground text-base leading-relaxed">
