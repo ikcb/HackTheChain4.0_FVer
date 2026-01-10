@@ -446,7 +446,6 @@ export default function Home() {
       >
         {/* Overlay - contained within section */}
         <div className="absolute inset-0 bg-black/70 z-0" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black via-black to-black pointer-events-none z-10" />
         <div className="max-w-5xl mx-auto relative z-10">
           <div
             className={`text-center mb-16 transition-all duration-1000 ${
@@ -509,7 +508,6 @@ export default function Home() {
       >
         {/* Overlay - contained within section */}
         <div className="absolute inset-0 bg-black/70 z-0" />
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black to-black pointer-events-none z-10" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div
             className={`text-center mb-20 transition-all duration-1000 ${
@@ -593,12 +591,11 @@ export default function Home() {
       {/* Timeline Section */}
       <section
         id="timeline"
-        className="section-bg-image py-32 px-6 relative min-h-screen flex items-center overflow-hidden isolate"
+        className="section-bg-image py-32 px-6 relative overflow-hidden isolate"
         style={{ backgroundImage: "url('/images/back2.png')" }}
       >
         {/* Overlay - contained within section */}
         <div className="absolute inset-0 bg-black/70 z-0" />
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black to-black pointer-events-none z-10" />
         <div className="max-w-6xl mx-auto w-full relative z-10">
           <div
             className={`text-center mb-20 transition-all duration-1000 ${
@@ -617,17 +614,17 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="relative h-[600px] md:h-[700px]">
-            {/* Vertical Timeline Line - Fixed */}
+          <div className="relative py-8">
+            {/* Vertical Timeline Line */}
             <div className="timeline-line" />
 
-            {/* Timeline Events Container - Fixed Height Slider */}
-            <div className="relative h-full">
+            {/* Timeline Events Container */}
+            <div className="relative space-y-20 md:space-y-24">
               {[
                 {
                   title: "Round 1",
                   date: "21-02-2026",
-                  desc: "Registration starts for Round 1 HackTheChain 3.0",
+                  desc: "Registration starts for Round 1 HackTheChain 4.0",
                 },
                 {
                   title: "Round 1 Result",
@@ -645,45 +642,29 @@ export default function Home() {
                   desc: "Winner Announcement and Closing Ceremony",
                 },
               ].map((step, i) => {
-                const isActive = activeTimelineIndex === i;
+                const isVisible = visibleSections["timeline"];
 
                 return (
                   <div
                     key={i}
-                    className="absolute inset-0 flex items-center justify-center transition-all duration-700 ease-in-out"
-                    style={{
-                      opacity: isActive ? 1 : 0,
-                      transform: isActive
-                        ? "translateY(0) scale(1)"
-                        : "translateY(40px) scale(0.95)",
-                      pointerEvents: isActive ? "auto" : "none",
-                      zIndex: isActive ? 10 : 1,
-                    }}
+                    className={`relative flex items-center justify-center transition-all duration-700 ${
+                      isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                    }`}
+                    style={{ transitionDelay: `${i * 100}ms` }}
                   >
                     {/* Timeline Dot */}
                     <div
                       className="timeline-dot absolute"
                       style={{
                         top: "50%",
-                        left: "50%",
-                        transform: "translate(-50%, -50%)",
-                        opacity: isActive ? 1 : 0.3,
-                        scale: isActive ? 1.2 : 1,
-                        transition: "all 0.5s ease-in-out",
                       }}
                     />
 
                     {/* Timeline Card - Centered */}
                     <div className="w-full max-w-2xl px-6 md:px-0 pl-12 md:pl-0">
-                      <div className="glassmorphism rounded-2xl p-8 md:p-10 transition-all duration-500">
+                      <div className="glassmorphism rounded-2xl p-8 md:p-10">
                         <div className="flex items-center gap-4 mb-6">
-                          <div
-                            className={`w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center transition-all duration-300 ${
-                              isActive
-                                ? "bg-accent/30 border-accent/50 scale-110"
-                                : ""
-                            }`}
-                          >
+                          <div className="w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center">
                             <Calendar className="w-6 h-6 text-accent" />
                           </div>
                           <div>
@@ -716,8 +697,6 @@ export default function Home() {
       >
         {/* Overlay - contained within section */}
         <div className="absolute inset-0 bg-black/70 z-0" />
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black to-black pointer-events-none z-10" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black via-black to-black pointer-events-none z-10" />
         <div className="max-w-5xl mx-auto relative z-10">
           <div
             className={`text-center mb-20 transition-all duration-1000 ${
@@ -804,7 +783,6 @@ export default function Home() {
       >
         {/* Overlay - contained within section */}
         <div className="absolute inset-0 bg-black/70 z-0" />
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black to-black pointer-events-none z-10" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div
             className={`text-center mb-20 transition-all duration-1000 ${
@@ -909,8 +887,6 @@ export default function Home() {
       >
         {/* Overlay - contained within section */}
         <div className="absolute inset-0 bg-black/70 z-0" />
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black to-black pointer-events-none z-10" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black via-black to-black pointer-events-none z-10" />
         <div className="max-w-6xl mx-auto relative z-10">
           <div
             className={`text-center mb-20 transition-all duration-1000 ${
@@ -1011,8 +987,6 @@ export default function Home() {
       >
         {/* Overlay - contained within section */}
         <div className="absolute inset-0 bg-black/70 z-0" />
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black to-black pointer-events-none z-10" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black via-black to-black pointer-events-none z-10" />
         <div className="max-w-6xl mx-auto relative z-10">
           <div
             className={`text-center mb-20 transition-all duration-1000 ${
