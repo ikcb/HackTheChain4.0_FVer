@@ -306,31 +306,31 @@ export default function Home() {
           <nav className="hidden md:flex gap-10 text-sm font-medium">
             <Link
               href="#about"
-              className="text-muted-foreground hover:text-white transition-colors"
+              className="text-muted-foreground hover:text-white transition-colors nav-link-underline"
             >
               About
             </Link>
             <Link
               href="#domains"
-              className="text-muted-foreground hover:text-white transition-colors"
+              className="text-muted-foreground hover:text-white transition-colors nav-link-underline"
             >
               Tracks
             </Link>
             <Link
               href="#timeline"
-              className="text-muted-foreground hover:text-white transition-colors"
+              className="text-muted-foreground hover:text-white transition-colors nav-link-underline"
             >
               Timeline
             </Link>
             <Link
               href="#prizes"
-              className="text-muted-foreground hover:text-white transition-colors"
+              className="text-muted-foreground hover:text-white transition-colors nav-link-underline"
             >
               Prizes
             </Link>
             <Link
               href="#faq"
-              className="text-muted-foreground hover:text-white transition-colors"
+              className="text-muted-foreground hover:text-white transition-colors nav-link-underline"
             >
               FAQ
             </Link>
@@ -503,11 +503,11 @@ export default function Home() {
       {/* Domains/Tracks Section */}
       <section
         id="domains"
-        className="section-bg-image py-32 px-6 relative overflow-hidden isolate"
+        className="section-bg-image py-24 px-6 relative overflow-hidden isolate"
         style={{ backgroundImage: "url('/images/back2.png')" }}
       >
         {/* Overlay - contained within section */}
-        <div className="absolute inset-0 bg-black/70 z-0" />
+        <div className="absolute inset-0 bg-black/80 z-0 transition-opacity duration-300" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div
             className={`text-center mb-20 transition-all duration-1000 ${
@@ -526,7 +526,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {[
               {
                 icon: Globe,
@@ -553,18 +553,20 @@ export default function Home() {
                 title: "Business Innovation",
                 desc: "Tackle real-world business challenges and develop innovative solutions that can be scaled into full-fledged startups.",
               },
-              {
-                icon: Sparkles,
-                title: "Open",
-                desc: "This track welcomes diverse and boundary-pushing ideas using emerging technologies.",
-              },
             ].map((item, i) => {
               const Icon = item.icon;
               const isVisible = visibleSections["domains"];
+              
+              // Variable width logic for 3:2 layout
+              // First 3 items (0,1,2) -> width like grid-cols-3
+              // Next 2 items (3,4) -> width approx 1/3 but centered? No, flex will handle it if we size them carefully.
+              // To ensure 3 top, 2 bottom, we can enforce widths.
+              // md:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-1.5rem)]
+              
               return (
                 <div
                   key={i}
-                  className={`group relative hover-lift p-8 border border-accent/10 hover:border-accent/40 rounded-2xl glassmorphism cursor-pointer ${
+                  className={`w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.33%-1rem)] group relative hover-lift p-8 border border-accent/10 hover:border-accent/40 rounded-2xl glassmorphism cursor-pointer flex flex-col ${
                     isVisible
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-8"
@@ -572,7 +574,7 @@ export default function Home() {
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-accent/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 blur transition-all duration-500" />
-                  <div className="relative">
+                  <div className="relative flex-grow">
                     <Icon className="w-10 h-10 mb-6 text-accent group-hover:scale-110 group-hover:text-accent transition-all duration-300" />
                     <h3 className="font-display font-bold text-xl mb-3 text-white">
                       {item.title}
@@ -591,11 +593,11 @@ export default function Home() {
       {/* Timeline Section */}
       <section
         id="timeline"
-        className="section-bg-image py-32 px-6 relative overflow-hidden isolate"
+        className="section-bg-image py-24 px-6 relative overflow-hidden isolate"
         style={{ backgroundImage: "url('/images/back2.png')" }}
       >
-        {/* Overlay - contained within section */}
-        <div className="absolute inset-0 bg-black/70 z-0" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/80 z-0" />
         <div className="max-w-6xl mx-auto w-full relative z-10">
           <div
             className={`text-center mb-20 transition-all duration-1000 ${
@@ -648,58 +650,92 @@ export default function Home() {
                 return (
                   <div
                     key={i}
-                    className={`relative flex items-center transition-all duration-700 ${
+                    className={`relative grid grid-cols-1 md:grid-cols-[1fr_4rem_1fr] items-center transition-all duration-700 ${
                       isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                    } ${isLeft ? "md:justify-start" : "md:justify-end"} justify-center`}
+                    }`}
                     style={{ transitionDelay: `${i * 100}ms` }}
                   >
-                    {/* Timeline Dot */}
-                    <div
-                      className="timeline-dot absolute"
-                      style={{
-                        top: "50%",
-                        transform: "translate(-50%, -50%)",
-                      }}
-                    />
-
-                    {/* Connector Line from Center to Card */}
-                    <div
-                      className="hidden md:block absolute top-1/2 h-px opacity-30"
-                      style={{
-                        left: isLeft ? "calc(50% - 5rem)" : "50%",
-                        width: "5rem",
-                        background: isLeft
-                          ? "linear-gradient(to left, rgba(168, 85, 247, 0.25), rgba(168, 85, 247, 0.15), transparent)"
-                          : "linear-gradient(to right, rgba(168, 85, 247, 0.25), rgba(168, 85, 247, 0.15), transparent)",
-                        transform: "translateY(-50%)",
-                        zIndex: 1,
-                      }}
-                    />
-
-                    {/* Timeline Card - Alternating Left/Right */}
-                    <div
-                      className={`w-full max-w-2xl px-6 md:px-0 ${
-                        isLeft ? "md:pr-12 md:pl-0 pl-12" : "md:pl-12 md:pr-0 pl-12"
-                      }`}
-                    >
-                      <div className="glassmorphism rounded-2xl p-8 md:p-10">
-                        <div className="flex items-center gap-4 mb-6">
-                          <div className="w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center">
-                            <Calendar className="w-6 h-6 text-accent" />
-                          </div>
-                          <div>
-                            <div className="text-accent font-semibold text-base md:text-lg">
-                              {step.date}
+                    {/* Left Side (Empty or Card) */}
+                    <div className={`order-2 md:order-1 flex md:justify-end ${isLeft ? "justify-center" : ""}`}>
+                      {isLeft && (
+                        <div className="w-full max-w-xl">
+                          <div className="glassmorphism rounded-2xl p-8 md:p-10 hover:translate-y-[-5px] hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] transition-all duration-300 border border-accent/10 hover:border-accent/30 relative overflow-hidden group">
+                             {/* Content same as before */}
+                             <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-accent to-transparent opacity-50" />
+                            <div className="flex items-center gap-4 mb-6">
+                              <div className="w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
+                                <Calendar className="w-6 h-6 text-accent" />
+                              </div>
+                              <div>
+                                <div className="text-accent font-semibold text-base md:text-lg">
+                                  {step.date}
+                                </div>
+                              </div>
                             </div>
+                            <h3 className="font-display font-bold text-3xl md:text-4xl mb-4 text-white neon-text-glow group-hover:text-accent transition-colors duration-300">
+                              {step.title}
+                            </h3>
+                            <p className="text-muted-foreground leading-relaxed text-lg">
+                              {step.desc}
+                            </p>
                           </div>
                         </div>
-                        <h3 className="font-display font-bold text-3xl md:text-4xl mb-4 text-white neon-text-glow">
-                          {step.title}
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed text-lg">
-                          {step.desc}
-                        </p>
-                      </div>
+                      )}
+                    </div>
+
+                    {/* Center Column with Dot */}
+                    <div className="order-1 md:order-2 flex justify-center h-full relative py-8 md:py-0">
+                       <div
+                        className="timeline-dot relative"
+                        style={{
+                          width: "16px",
+                          height: "16px",
+                          zIndex: 2,
+                        }}
+                      />
+                      {/* Connector Line Logic per item? No, the main vertical line covers it. We can add small horizontal connectors here if needed. */}
+                      {/* Horizontal Connector */}
+                       <div
+                          className="hidden md:block absolute top-1/2 h-px opacity-30"
+                          style={{
+                            left: isLeft ? "50%" : "auto",
+                            right: isLeft ? "auto" : "50%",
+                            width: "2rem", /* Short connector towards the card */
+                            background: isLeft
+                              ? "linear-gradient(to right, rgba(168, 85, 247, 0.25), transparent)"
+                              : "linear-gradient(to left, rgba(168, 85, 247, 0.25), transparent)",
+                            transform: "translateY(-50%)",
+                            zIndex: 1,
+                          }}
+                        />
+                    </div>
+
+                    {/* Right Side (Card or Empty) */}
+                     <div className={`order-3 md:order-3 flex md:justify-start ${!isLeft ? "justify-center" : ""}`}>
+                      {!isLeft && (
+                        <div className="w-full max-w-xl">
+                          <div className="glassmorphism rounded-2xl p-8 md:p-10 hover:translate-y-[-5px] hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] transition-all duration-300 border border-accent/10 hover:border-accent/30 relative overflow-hidden group">
+                               {/* Content same as before */}
+                            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-accent to-transparent opacity-50" />
+                            <div className="flex items-center gap-4 mb-6">
+                              <div className="w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
+                                <Calendar className="w-6 h-6 text-accent" />
+                              </div>
+                              <div>
+                                <div className="text-accent font-semibold text-base md:text-lg">
+                                  {step.date}
+                                </div>
+                              </div>
+                            </div>
+                            <h3 className="font-display font-bold text-3xl md:text-4xl mb-4 text-white neon-text-glow group-hover:text-accent transition-colors duration-300">
+                              {step.title}
+                            </h3>
+                            <p className="text-muted-foreground leading-relaxed text-lg">
+                              {step.desc}
+                            </p>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 );
@@ -712,12 +748,12 @@ export default function Home() {
       {/* Stats Section */}
       <section
         id="stats"
-        className="section-bg-image py-32 px-6 relative overflow-hidden isolate"
+        className="section-bg-image py-24 px-6 relative overflow-hidden isolate"
         style={{ backgroundImage: "url('/images/back2.png')" }}
       >
-        {/* Overlay - contained within section */}
-        <div className="absolute inset-0 bg-black/70 z-0" />
-        <div className="max-w-5xl mx-auto relative z-10">
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/80 z-0" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <div
             className={`text-center mb-20 transition-all duration-1000 ${
               visibleSections["stats"]
@@ -771,13 +807,13 @@ export default function Home() {
               return (
                 <div
                   key={i}
-                  className={`group relative transition-all duration-700 ${
+                  className={`group relative transition-all duration-700 w-full ${
                     isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
                   }`}
                   style={{ transitionDelay: `${i * 150}ms` }}
                 >
                   <div className="absolute -inset-1 bg-gradient-to-r from-accent via-accent to-accent/60 rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition" />
-                  <div className="relative p-8 border border-accent/10 hover:border-accent/40 rounded-2xl glassmorphism h-full flex flex-col items-center text-center transition-all">
+                  <div className="relative p-10 border border-accent/10 hover:border-accent/40 rounded-2xl glassmorphism h-full flex flex-col items-center text-center transition-all bg-black/40">
                     <Icon className="w-8 h-8 text-accent mb-4 group-hover:scale-110 transition-transform duration-300" />
                     <div className="text-5xl font-display font-black text-accent mb-2 neon-text-glow">
                       <AnimatedCounter end={stat.value} suffix={stat.suffix} />
@@ -798,11 +834,11 @@ export default function Home() {
 
       <section
         id="prizes"
-        className="section-bg-image py-32 px-6 relative overflow-hidden isolate"
+        className="section-bg-image py-24 px-6 relative overflow-hidden isolate"
         style={{ backgroundImage: "url('/images/back2.png')" }}
       >
-        {/* Overlay - contained within section */}
-        <div className="absolute inset-0 bg-black/70 z-0" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/80 z-0" />
         <div className="max-w-7xl mx-auto relative z-10">
           <div
             className={`text-center mb-20 transition-all duration-1000 ${
@@ -831,18 +867,21 @@ export default function Home() {
                 title: "SUPREME",
                 icon: Trophy,
                 rank: "01",
+                amount: "₹45,000",
               },
               {
                 place: "2nd Place",
                 title: "PRESTIGIOUS",
                 icon: Award,
                 rank: "02",
+                amount: "₹35,000",
               },
               {
                 place: "3rd Place",
                 title: "RENOWNED",
                 icon: Medal,
                 rank: "03",
+                amount: "₹20,000",
               },
             ].map((prize, i) => {
               const Icon = prize.icon;
@@ -861,37 +900,51 @@ export default function Home() {
                     {/* Glow effect on hover */}
                     <div className="absolute -inset-0.5 bg-gradient-to-br from-accent/40 via-accent/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
 
-                    {/* Main card */}
-                    <div className="relative glassmorphism rounded-3xl p-10 text-center transition-all duration-500 h-full flex flex-col items-center justify-center">
-                      {/* Rank number - subtle background */}
-                      <div className="absolute top-6 right-6 text-6xl font-display font-black text-accent/5 select-none">
-                        {prize.rank}
+                      {/* Main card */}
+                      <div className="relative glassmorphism rounded-3xl p-10 text-center transition-all duration-500 h-full flex flex-col items-center justify-start min-h-[500px]">
+                        {/* Rank number - subtle background */}
+                        <div className="absolute top-6 right-6 text-6xl font-display font-black text-accent/5 select-none">
+                          {prize.rank}
+                        </div>
+
+                        {/* Icon */}
+                        <div className="relative mb-6 inline-flex items-center justify-center w-28 h-28 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 border-2 border-accent/30 group-hover:border-accent/50 group-hover:scale-110 transition-all duration-500">
+                          <Icon className="w-14 h-14 text-accent group-hover:scale-110 transition-transform duration-500" />
+                          <div className="absolute inset-0 rounded-2xl bg-accent/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                        </div>
+
+                        {/* Badge */}
+                        <div className="text-xs font-medium tracking-widest text-accent/70 uppercase mb-3">
+                          HACKATHON WINNER
+                        </div>
+
+                        {/* Title with glow */}
+                        <h3 className="text-4xl lg:text-5xl font-display font-black mb-3 neon-text-glow text-accent">
+                          {prize.title}
+                        </h3>
+
+                        {/* Place */}
+                        <p className="text-white/90 font-semibold text-xl mb-6">
+                          {prize.place}
+                        </p>
+
+                        {/* Placeholder Content */}
+                        <p className="text-muted-foreground text-sm leading-relaxed mb-8 max-w-[250px]">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                        </p>
+
+                        <div className="mt-auto w-full">
+                           {/* Decorative line */}
+                           <div className="w-full h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent mb-6" />
+                           
+                           {/* Money Box */}
+                           <div className="mx-auto inline-block px-8 py-3 bg-accent/10 border border-accent/20 rounded-xl">
+                              <span className="text-2xl font-mono font-bold text-accent">
+                                {prize.amount}
+                              </span>
+                           </div>
+                        </div>
                       </div>
-
-                      {/* Icon */}
-                      <div className="relative mb-6 inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 border-2 border-accent/30 group-hover:border-accent/50 group-hover:scale-110 transition-all duration-500">
-                        <Icon className="w-12 h-12 text-accent group-hover:scale-110 transition-transform duration-500" />
-                        <div className="absolute inset-0 rounded-2xl bg-accent/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
-                      </div>
-
-                      {/* Badge */}
-                      <div className="text-xs font-medium tracking-widest text-accent/70 uppercase mb-3">
-                        HACKATHON WINNER
-                      </div>
-
-                      {/* Title with glow */}
-                      <h3 className="text-5xl font-display font-black mb-3 neon-text-glow text-accent">
-                        {prize.title}
-                      </h3>
-
-                      {/* Place */}
-                      <p className="text-white/90 font-semibold text-xl">
-                        {prize.place}
-                      </p>
-
-                      {/* Decorative line */}
-                      <div className="mt-6 w-16 h-0.5 bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
-                    </div>
                   </div>
                 </div>
               );
@@ -902,11 +955,11 @@ export default function Home() {
 
       <section
         id="rules"
-        className="section-bg-image py-32 px-6 relative overflow-hidden isolate"
+        className="section-bg-image py-24 px-6 relative overflow-hidden isolate"
         style={{ backgroundImage: "url('/images/back2.png')" }}
       >
-        {/* Overlay - contained within section */}
-        <div className="absolute inset-0 bg-black/70 z-0" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/80 z-0" />
         <div className="max-w-6xl mx-auto relative z-10">
           <div
             className={`text-center mb-20 transition-all duration-1000 ${
@@ -1002,12 +1055,12 @@ export default function Home() {
 
       <section
         id="judging"
-        className="section-bg-image py-32 px-6 relative overflow-hidden isolate"
+        className="section-bg-image py-24 px-6 relative overflow-hidden isolate"
         style={{ backgroundImage: "url('/images/back2.png')" }}
       >
-        {/* Overlay - contained within section */}
-        <div className="absolute inset-0 bg-black/70 z-0" />
-        <div className="max-w-6xl mx-auto relative z-10">
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/80 z-0" />
+        <div className="max-w-7xl mx-auto relative z-10">
           <div
             className={`text-center mb-20 transition-all duration-1000 ${
               visibleSections["judging"]
@@ -1030,31 +1083,37 @@ export default function Home() {
               {
                 title: "Innovation & Creativity",
                 desc: "Originality, novelty, and creative problem-solving.",
+                details: "We look for unique approaches to existing problems. Does your solution offer a fresh perspective? Is it creative in its implementation?",
                 icon: Lightbulb,
               },
               {
                 title: "Technical Ability",
                 desc: "Proper use of technologies and solid implementation.",
+                details: "Assessment of the code quality, stack choice, and technical complexity. Does it work efficiently? Is the architecture sound?",
                 icon: FileCode,
               },
               {
                 title: "Impact & Relevance",
                 desc: "Potential industry or societal impact.",
+                details: "How useful is this solution in the real world? Does it address a significant problem for a specific community or industry?",
                 icon: Globe,
               },
               {
                 title: "User Experience",
                 desc: "Usability, clarity, and demonstration quality.",
+                details: "Is the interface intuitive? Is the user flow smooth? A great backend needs a usable frontend to be truly effective.",
                 icon: Users,
               },
               {
                 title: "Presentation",
                 desc: "Clear explanation, structure, and pitch delivery.",
+                details: "How well can you communicate your idea? The pitch should be concise, clear, and engaging to the judges.",
                 icon: Award,
               },
               {
                 title: "Completion",
                 desc: "Project completeness and working state.",
+                details: "Is the MVP working? We value a finished core feature set over a half-baked massive platform.",
                 icon: CheckCircle,
               },
             ].map((criteria, i) => {
@@ -1069,16 +1128,27 @@ export default function Home() {
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-purple-600 rounded-2xl opacity-0 group-hover:opacity-30 blur transition-all duration-500" />
-                  <div className="relative py-6 lg:py-7 px-8 lg:px-10 border border-accent/20 hover:border-accent/50 rounded-2xl glassmorphism h-full transition-all duration-500">
-                    <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/20 group-hover:border-accent/40 group-hover:scale-110 transition-all duration-300">
-                      <Icon className="w-8 h-8 lg:w-10 lg:h-10 text-accent" />
+                  <div className="relative p-8 border border-accent/20 hover:border-accent/50 rounded-2xl glassmorphism h-full transition-all duration-500 overflow-hidden cursor-pointer">
+                    <div className="flex flex-col items-center text-center">
+                        <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/20 group-hover:border-accent/40 group-hover:scale-110 transition-all duration-300">
+                        <Icon className="w-8 h-8 lg:w-10 lg:h-10 text-accent" />
+                        </div>
+                        <h3 className="font-display font-bold text-xl lg:text-2xl mb-2 text-white group-hover:text-accent transition-colors">
+                        {criteria.title}
+                        </h3>
+                        <p className="text-muted-foreground text-base leading-relaxed mb-2">
+                        {criteria.desc}
+                        </p>
+                        
+                        {/* Expanded Content */}
+                        <div className="max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+                            <div className="pt-4 border-t border-accent/10 mt-4">
+                                <p className="text-sm text-white/80">
+                                    {criteria.details}
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 className="font-display font-bold text-xl lg:text-2xl mb-2 text-white">
-                      {criteria.title}
-                    </h3>
-                    <p className="text-muted-foreground text-base leading-relaxed">
-                      {criteria.desc}
-                    </p>
                   </div>
                 </div>
               );
@@ -1234,141 +1304,85 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="relative border-t border-accent/20 py-20 px-6 bg-gradient-to-b from-black via-black to-[#0a0a0a]">
+      <footer className="relative border-t border-accent/20 pt-20 pb-10 px-6 overflow-hidden">
+        {/* Footer Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img src="/images/back4.png" alt="Footer Background" className="w-full h-full object-cover opacity-30" />
+          <div className="absolute inset-0 bg-black/90" />
+        </div>
+
         {/* Glow divider at top */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent z-10" />
 
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-12 lg:gap-16 mb-16">
-            {/* Brand */}
-            <div className="md:col-span-2">
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="grid md:grid-cols-4 gap-12 lg:gap-16 mb-16 items-start">
+            {/* Brand - Left */}
+            <div className="md:col-span-1">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-accent/60 flex items-center justify-center shadow-lg shadow-accent/20">
-                  <Link2 className="w-8 h-8 text-black" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-accent/60 flex items-center justify-center shadow-lg shadow-accent/20">
+                  <Link2 className="w-6 h-6 text-black" />
                 </div>
-                <div className="font-display font-bold text-3xl lg:text-4xl tracking-tighter bg-gradient-to-r from-white via-accent to-accent/80 bg-clip-text text-transparent neon-text-glow">
-                  HackTheChain 4.0
+                <div className="font-display font-bold text-2xl tracking-tighter text-white">
+                  HackTheChain
                 </div>
               </div>
-              <p className="text-muted-foreground leading-relaxed max-w-lg mb-8 text-base">
+              <p className="text-muted-foreground leading-relaxed text-sm mb-6">
                 The biggest hackathon in Kota City, presented by IIIT Kota in
-                association with Codebase. Join us for an incredible journey of
-                innovation and creativity!
+                association with Codebase.
               </p>
-              <div className="flex gap-4">
-                <a
-                  href="#"
-                  className="w-12 h-12 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300 group"
-                >
-                  <Twitter className="w-5 h-5 text-accent group-hover:scale-110 transition-transform" />
-                </a>
-                <a
-                  href="#"
-                  className="w-12 h-12 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300 group"
-                >
-                  <Instagram className="w-5 h-5 text-accent group-hover:scale-110 transition-transform" />
-                </a>
-                <a
-                  href="#"
-                  className="w-12 h-12 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300 group"
-                >
-                  <Linkedin className="w-5 h-5 text-accent group-hover:scale-110 transition-transform" />
-                </a>
-                <a
-                  href="#"
-                  className="w-12 h-12 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300 group"
-                >
-                  <Github className="w-5 h-5 text-accent group-hover:scale-110 transition-transform" />
-                </a>
-              </div>
             </div>
 
-            {/* Quick Links */}
-            <div>
-              <h4 className="font-display font-bold text-lg lg:text-xl mb-6 text-white">
-                Quick Links
-              </h4>
-              <ul className="space-y-4">
-                <li>
-                  <Link
-                    href="#about"
-                    className="text-muted-foreground hover:text-accent transition-colors duration-300 inline-block hover:translate-x-1"
-                  >
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#domains"
-                    className="text-muted-foreground hover:text-accent transition-colors duration-300 inline-block hover:translate-x-1"
-                  >
-                    Tracks
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#timeline"
-                    className="text-muted-foreground hover:text-accent transition-colors duration-300 inline-block hover:translate-x-1"
-                  >
-                    Timeline
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#prizes"
-                    className="text-muted-foreground hover:text-accent transition-colors duration-300 inline-block hover:translate-x-1"
-                  >
-                    Prizes
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#rules"
-                    className="text-muted-foreground hover:text-accent transition-colors duration-300 inline-block hover:translate-x-1"
-                  >
-                    Rules
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#faq"
-                    className="text-muted-foreground hover:text-accent transition-colors duration-300 inline-block hover:translate-x-1"
-                  >
-                    FAQ
-                  </Link>
-                </li>
-              </ul>
+            {/* Quick Links - Center (Spanning 2 columns visually or just center alignment? Reference says Center. We'll use col-span-2 and flex to center) */}
+            <div className="md:col-span-2 flex justify-center">
+                <div className="text-center md:text-left">
+                    <h4 className="font-display font-bold text-lg mb-6 text-white">
+                        Quick Links
+                    </h4>
+                    <div className="grid grid-cols-2 gap-x-12 gap-y-3">
+                        <Link href="#about" className="text-muted-foreground hover:text-accent transition-colors duration-300">About</Link>
+                        <Link href="#domains" className="text-muted-foreground hover:text-accent transition-colors duration-300">Tracks</Link>
+                        <Link href="#timeline" className="text-muted-foreground hover:text-accent transition-colors duration-300">Timeline</Link>
+                        <Link href="#prizes" className="text-muted-foreground hover:text-accent transition-colors duration-300">Prizes</Link>
+                        <Link href="#rules" className="text-muted-foreground hover:text-accent transition-colors duration-300">Rules</Link>
+                        <Link href="#faq" className="text-muted-foreground hover:text-accent transition-colors duration-300">FAQ</Link>
+                    </div>
+                </div>
             </div>
 
-            {/* Contact */}
-            <div>
-              <h4 className="font-display font-bold text-lg lg:text-xl mb-6 text-white">
+            {/* Contact / Socials - Right */}
+            <div className="md:col-span-1 flex flex-col items-start md:items-end text-left md:text-right">
+              <h4 className="font-display font-bold text-lg mb-6 text-white">
                 Contact Us
               </h4>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-muted-foreground">
-                  <Mail className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                  <a
-                    href="mailto:hackthechain@iiitk.ac.in"
-                    className="hover:text-accent transition-colors duration-300"
-                  >
-                    hackthechain@iiitk.ac.in
-                  </a>
+              <ul className="space-y-4 mb-6">
+                <li className="text-muted-foreground hover:text-accent transition-colors">
+                  <a href="mailto:hackthechain@iiitk.ac.in">hackthechain@iiitk.ac.in</a>
                 </li>
-                <li className="text-muted-foreground leading-relaxed">
-                  IIIT Kota Campus
-                  <br />
-                  Kota, Rajasthan
+                <li className="text-muted-foreground">
+                  IIIT Kota Campus, Rajasthan
                 </li>
               </ul>
+              <div className="flex gap-3">
+                <a href="#" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
+                   <Twitter className="w-4 h-4 text-accent" />
+                </a>
+                <a href="#" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
+                   <Instagram className="w-4 h-4 text-accent" />
+                </a>
+                <a href="#" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
+                   <Linkedin className="w-4 h-4 text-accent" />
+                </a>
+                <a href="#" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
+                   <Github className="w-4 h-4 text-accent" />
+                </a>
+              </div>
             </div>
           </div>
 
           <div className="pt-8 border-t border-accent/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© 2026 HackTheChain 4.0 — Presented by CodeBase IIIT Kota</p>
-            <p>
-              Made with <span className="text-accent">♥</span> by the
-              HackTheChain Team
+            <p>© 2026 HackTheChain 4.0 — All Rights Reserved.</p>
+            <p className="flex items-center gap-1">
+              Made with <span className="text-red-500 animate-pulse">❤️</span> by Divyam Saraf
             </p>
           </div>
         </div>

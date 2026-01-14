@@ -122,9 +122,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   h1,
   h2,
   h3,
@@ -142,10 +144,12 @@
   }
 
   @keyframes float {
+
     0%,
     100% {
       transform: translateY(0px);
     }
+
     50% {
       transform: translateY(-20px);
     }
@@ -157,10 +161,12 @@
 
   /* Updated glow animation to neon purple */
   @keyframes glow {
+
     0%,
     100% {
       box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
     }
+
     50% {
       box-shadow: 0 0 40px rgba(168, 85, 247, 0.7);
     }
@@ -176,6 +182,7 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -191,6 +198,7 @@
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(-50%);
     }
@@ -200,6 +208,7 @@
     0% {
       transform: translateX(-50%);
     }
+
     100% {
       transform: translateX(0);
     }
@@ -213,7 +222,7 @@
     animation: scroll-right 30s linear infinite;
   }
 
-  /* Prize card tilt effect */
+  /* Prize card tilt effect & enhancement */
   .prize-card {
     transform-style: preserve-3d;
     perspective: 1000px;
@@ -225,30 +234,31 @@
 
   /* Neon text glow effect - subtle and premium */
   .neon-text-glow {
-    text-shadow: 0 0 8px rgba(168, 85, 247, 0.6), 0 0 16px rgba(168, 85, 247, 0.4), 0 0 24px rgba(168, 85, 247, 0.2);
+    text-shadow: 0 0 8px rgba(168, 85, 247, 0.6), 0 0 16px rgba(168, 85, 247, 0.4);
   }
 
   /* Neon heading glow - for main headings */
   .neon-heading-glow {
-    text-shadow: 0 0 10px rgba(168, 85, 247, 0.7), 0 0 20px rgba(168, 85, 247, 0.5), 0 0 30px rgba(168, 85, 247, 0.3);
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.7), 0 0 20px rgba(168, 85, 247, 0.5);
   }
 
   /* Neon border glow */
   .neon-border-glow {
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.3), inset 0 0 15px rgba(168, 85, 247, 0.1);
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.2), inset 0 0 10px rgba(168, 85, 247, 0.1);
   }
 
   .neon-border-glow:hover {
-    box-shadow: 0 0 25px rgba(168, 85, 247, 0.5), 0 0 50px rgba(168, 85, 247, 0.3), inset 0 0 20px
-      rgba(168, 85, 247, 0.15);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4), 0 0 40px rgba(168, 85, 247, 0.2), inset 0 0 15px rgba(168, 85, 247, 0.15);
   }
 
-  /* Section background with image overlay */
+  /* Section background with image overlay - Enhanced for blending */
   .section-bg-image {
     position: relative;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    /* Ensure no bleeding */
+    background-clip: padding-box;
   }
 
   .section-bg-image::before {
@@ -263,18 +273,16 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.15) 0%,
-      transparent 8%,
-      transparent 92%,
-      rgba(0, 0, 0, 0.15) 100%
-    );
+    background: linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.15) 0%,
+        transparent 8%,
+        transparent 92%,
+        rgba(0, 0, 0, 0.15) 100%);
     z-index: 1;
     pointer-events: none;
   }
 
-  .section-bg-image > * {
+  .section-bg-image>* {
     position: relative;
     z-index: 2;
   }
@@ -357,6 +365,30 @@
     box-shadow: 0 20px 40px rgba(168, 85, 247, 0.2);
   }
 
+  /* Navbar underline animation */
+  .nav-link-underline {
+    position: relative;
+  }
+
+  .nav-link-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -4px;
+    /* Adjust spacing to likely match padding */
+    left: 0;
+    background-color: #a855f7;
+    /* Accent color */
+    transform-origin: bottom left;
+    transition: transform 0.3s ease-out;
+  }
+
+  .nav-link-underline:hover::after {
+    transform: scaleX(1);
+  }
+
   /* Performance optimizations */
   .section-bg-image {
     will-change: transform;
@@ -372,6 +404,7 @@
     html {
       scroll-behavior: auto;
     }
+
     *,
     *::before,
     *::after {
