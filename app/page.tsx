@@ -190,64 +190,89 @@ export default function Home() {
 
   const teamMembers = [
     {
-      name: "Arjun Sharma",
+      name: "Sanidhya Madeshia",
+      role: "Coordinator",
+      image: "/sanidhya-lead.png",
+    },
+    {
+      name: "Yash Agarwal",
+      role: "Co-Coordinator",
+      image: "/yash-lead.png",
+    },
+    {
+      name: "Ashmit Singh",
       role: "Lead Organizer",
-      image: "/professional-indian-man-portrait.png",
+      image: "/ashmit-lead.png",
     },
     {
-      name: "Priya Patel",
-      role: "Tech Lead",
-      image: "/professional-indian-woman-portrait.png",
+      name: "Ayush Kumar",
+      role: "Lead Organizer",
+      image: "/aayush-lead.png",
     },
     {
-      name: "Rahul Verma",
-      role: "Design Head",
-      image: "/young-indian-man-developer.jpg",
+      name: "Dipesh Mundotiya",
+      role: "Lead Organizer",
+      image: "/dipesh-lead.png",
     },
     {
-      name: "Ananya Gupta",
-      role: "Marketing Lead",
-      image: "/young-indian-professional.png",
+      name: "Harsh Raj",
+      role: "Lead Organizer",
+      image: "/harsh-lead.png",
     },
     {
-      name: "Vikram Singh",
-      role: "Sponsorship Head",
-      image: "/indian-businessman.png",
+      name: "Parth Rudrawar",
+      role: "Lead Organizer",
+      image: "/parth-lead.png",
     },
     {
-      name: "Sneha Reddy",
-      role: "Operations Lead",
-      image: "/indian-woman-manager.jpg",
+      name: "Divyam Saraf",
+      role: "Web Dev Lead",
+      image: "/divyam.png",
     },
     {
-      name: "Aditya Kumar",
-      role: "Developer",
-      image: "/indian-developer-male.jpg",
+      name: "Satyam Rajawat",
+      role: "Web Dev Lead",
+      image: "/satyam.png",
     },
     {
-      name: "Kavya Nair",
-      role: "Content Lead",
-      image: "/indian-woman-creative.jpg",
+      name: "Shyam Faujdar",
+      role: "Web Dev Lead",
+      image: "/shyam.png",
     },
     {
-      name: "Rohan Mehta",
-      role: "Logistics Head",
-      image: "/indian-man-coordinator.jpg",
+      name: "Aayush Mittal",
+      role: "Web3 Lead",
+      image: "/aayush.png",
     },
     {
-      name: "Ishita Jain",
-      role: "Volunteer Lead",
-      image: "/indian-woman-volunteer.jpg",
+      name: "Dhananjay Mangal",
+      role: "Social Media Lead",
+      image: "/dhananjay.png",
     },
     {
-      name: "Karan Malhotra",
-      role: "Social Media",
-      image: "/indian-man-social-media.jpg",
+      name: "Megh Kagadiya",
+      role: "Social Media Lead",
+      image: "/megh.png",
     },
     {
-      name: "Meera Chopra",
-      role: "PR Lead",
-      image: "/indian-woman-communications.jpg",
+      name: "Gaurav",
+      role: "Cloud Lead",
+      image: "/gaurav.png",
+    },
+    {
+      name: "Raghav Gupta",
+      role: "App dev Lead",
+      image: "/raghav.png",
+    },
+    {
+      name: "Aakarsh Bibhaw",
+      role: "UI/UX Lead",
+      image: "/aakarsh.png",
+    },
+    {
+      name: "ujjwal Sharma",
+      role: "ML Lead",
+      image: "/ujjwal.png",
     },
   ];
 
@@ -1181,7 +1206,7 @@ export default function Home() {
             <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-transparent via-transparent to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-transparent via-transparent to-transparent z-10 pointer-events-none" />
             <div className="flex animate-scroll-left">
-              {[...teamMembers.slice(0, 6), ...teamMembers.slice(0, 6)].map(
+              {[...teamMembers.slice(0, 7), ...teamMembers.slice(0, 7)].map(
                 (member, i) => (
                   <div key={i} className="flex-shrink-0 px-4">
                     <div className="group w-56 lg:w-64 p-8 lg:p-10 border border-accent/10 hover:border-accent/40 rounded-2xl glassmorphism hover-lift transition-all duration-500 text-center">
@@ -1208,7 +1233,7 @@ export default function Home() {
             <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-transparent via-transparent to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-transparent via-transparent to-transparent z-10 pointer-events-none" />
             <div className="flex animate-scroll-right">
-              {[...teamMembers.slice(6), ...teamMembers.slice(6)].map(
+              {[...teamMembers.slice(7), ...teamMembers.slice(7)].map(
                 (member, i) => (
                   <div key={i} className="flex-shrink-0 px-4">
                     <div className="group w-56 lg:w-64 p-8 lg:p-10 border border-accent/10 hover:border-accent/40 rounded-2xl glassmorphism hover-lift transition-all duration-500 text-center">
