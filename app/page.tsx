@@ -276,6 +276,9 @@ export default function Home() {
     },
   ];
 
+  const row1 = teamMembers.slice(0, 7);
+  const row2 = teamMembers.slice(7, 17);
+
   const faqData = [
     {
       question: "When and where is HackTheChain taking place?",
@@ -321,12 +324,8 @@ export default function Home() {
       <header className="fixed top-0 w-full bg-background/80 backdrop-blur-2xl border-b border-accent/20 z-50">
         <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent to-accent/60 flex items-center justify-center">
-              <Link2 className="w-6 h-6 text-black" />
-            </div>
-            <div className="font-display font-bold text-2xl tracking-tighter bg-gradient-to-r from-white via-accent to-accent/80 bg-clip-text text-transparent">
-              HackTheChain
-            </div>
+            <img src="/logo1.png" alt="Logo Icon" className="h-10 w-auto" />
+            <img src="/logo2.png" alt="HackTheChain" className="h-8 w-auto" />
           </div>
           <nav className="hidden md:flex gap-10 text-sm font-medium">
             <Link
@@ -448,15 +447,12 @@ export default function Home() {
               }`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-transparent to-transparent rounded-3xl blur-3xl animate-pulse" />
-              <div className="relative z-10 w-full max-w-sm lg:max-w-md aspect-square rounded-3xl bg-gradient-to-br from-accent/20 to-accent/5 border border-accent/30 flex items-center justify-center animate-float">
-                <div className="text-center">
-                  <div className="text-9xl font-display font-black text-accent mb-4">
-                    4.0
-                  </div>
-                  <div className="text-xl text-white/60 font-medium">
-                    Feb 21-23, 2026
-                  </div>
-                </div>
+              <div className="relative z-10 w-full max-w-sm lg:max-w-md aspect-square flex items-center justify-center animate-float">
+                <img
+                  src="/main-logo.png"
+                  alt="HackTheChain 4.0"
+                  className="w-full h-full object-contain drop-shadow-[0_0_50px_rgba(168,85,247,0.4)]"
+                />
               </div>
             </div>
           </div>
@@ -1152,27 +1148,41 @@ export default function Home() {
                   }`}
                   style={{ transitionDelay: `${i * 100}ms` }}
                 >
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-purple-600 rounded-2xl opacity-0 group-hover:opacity-30 blur transition-all duration-500" />
-                  <div className="relative p-8 border border-accent/20 hover:border-accent/50 rounded-2xl glassmorphism h-full transition-all duration-500 overflow-hidden cursor-pointer">
-                    <div className="flex flex-col items-center text-center">
-                        <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/20 group-hover:border-accent/40 group-hover:scale-110 transition-all duration-300">
+                  {/* Rebuilt Hover Effect: Overlay Card on top */}
+                  <div className="relative group h-full">
+                    {/* Base Card (Visible, remains underneath) */}
+                    <div className="relative z-10 p-8 border border-accent/20 rounded-2xl glassmorphism h-full flex flex-col items-center text-center transition-opacity duration-300">
+                      <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-4">
                         <Icon className="w-8 h-8 lg:w-10 lg:h-10 text-accent" />
-                        </div>
-                        <h3 className="font-display font-bold text-xl lg:text-2xl mb-2 text-white group-hover:text-accent transition-colors">
+                      </div>
+                      <h3 className="font-display font-bold text-xl lg:text-2xl mb-2 text-white">
                         {criteria.title}
-                        </h3>
-                        <p className="text-muted-foreground text-base leading-relaxed mb-2">
+                      </h3>
+                      <p className="text-muted-foreground text-base leading-relaxed">
                         {criteria.desc}
+                      </p>
+                    </div>
+
+                    {/* Overlay Card (Appears on hover, larger, higher z-index) */}
+                    <div className="absolute inset-0 z-50 flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 ease-out transform scale-95 group-hover:scale-105">
+                      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[115%] h-auto min-h-[110%] p-8 border border-accent/50 rounded-3xl bg-[#050505] shadow-[0_0_50px_rgba(168,85,247,0.3)] flex flex-col items-center text-center">
+                        <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-xl bg-accent/20 border border-accent/40 flex items-center justify-center mb-4">
+                          <Icon className="w-8 h-8 lg:w-10 lg:h-10 text-accent drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]" />
+                        </div>
+                        <h3 className="font-display font-bold text-xl lg:text-2xl mb-2 text-white drop-shadow-md">
+                          {criteria.title}
+                        </h3>
+                        <p className="text-white/80 text-base leading-relaxed mb-4">
+                          {criteria.desc}
                         </p>
                         
-                        {/* Expanded Content */}
-                        <div className="max-h-0 opacity-0 group-hover:max-h-40 group-hover:opacity-100 transition-all duration-500 ease-in-out">
-                            <div className="pt-4 border-t border-accent/10 mt-4">
-                                <p className="text-sm text-white/80">
-                                    {criteria.details}
-                                </p>
-                            </div>
+                        {/* Expanded Details */}
+                        <div className="pt-4 border-t border-accent/20 w-full animate-in fade-in slide-in-from-bottom-2 duration-300">
+                          <p className="text-sm text-accent/90 font-medium leading-relaxed">
+                            {criteria.details}
+                          </p>
                         </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1202,25 +1212,23 @@ export default function Home() {
           </div>
 
           {/* Row 1 - Scrolling Left */}
-          <div className="relative mb-6">
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-transparent via-transparent to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-transparent via-transparent to-transparent z-10 pointer-events-none" />
-            <div className="flex animate-scroll-left">
-              {[...teamMembers.slice(0, 7), ...teamMembers.slice(0, 7)].map(
+          <div className="relative mb-8">
+            <div className="flex animate-scroll-left hover:pause-none">
+              {[...row1, ...row1].map(
                 (member, i) => (
                   <div key={i} className="flex-shrink-0 px-4">
-                    <div className="group w-56 lg:w-64 p-8 lg:p-10 border border-accent/10 hover:border-accent/40 rounded-2xl glassmorphism hover-lift transition-all duration-500 text-center">
-                      <div className="w-28 h-28 lg:w-32 lg:h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-accent/30 group-hover:border-accent/60 group-hover:scale-110 transition-all duration-300">
+                    <div className="w-56 lg:w-64 p-8 lg:p-10 border border-accent/10 rounded-2xl glassmorphism text-center">
+                      <div className="w-28 h-28 lg:w-32 lg:h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-accent/30">
                         <img
                           src={member.image || "/placeholder.svg"}
                           alt={member.name}
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <h3 className="font-display font-bold text-base lg:text-lg mb-2 text-white">
+                      <h3 className="font-display font-bold text-base lg:text-lg mb-1 text-white">
                         {member.name}
                       </h3>
-                      <p className="text-accent text-sm">{member.role}</p>
+                      <p className="text-accent text-sm font-medium">{member.role}</p>
                     </div>
                   </div>
                 )
@@ -1230,24 +1238,22 @@ export default function Home() {
 
           {/* Row 2 - Scrolling Right */}
           <div className="relative">
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-transparent via-transparent to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-transparent via-transparent to-transparent z-10 pointer-events-none" />
-            <div className="flex animate-scroll-right">
-              {[...teamMembers.slice(7), ...teamMembers.slice(7)].map(
+            <div className="flex animate-scroll-right hover:pause-none">
+              {[...row2, ...row2].map(
                 (member, i) => (
                   <div key={i} className="flex-shrink-0 px-4">
-                    <div className="group w-56 lg:w-64 p-8 lg:p-10 border border-accent/10 hover:border-accent/40 rounded-2xl glassmorphism hover-lift transition-all duration-500 text-center">
-                      <div className="w-28 h-28 lg:w-32 lg:h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-accent/30 group-hover:border-accent/60 group-hover:scale-110 transition-all duration-300">
+                    <div className="w-56 lg:w-64 p-8 lg:p-10 border border-accent/10 rounded-2xl glassmorphism text-center">
+                      <div className="w-28 h-28 lg:w-32 lg:h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-accent/30">
                         <img
                           src={member.image || "/placeholder.svg"}
                           alt={member.name}
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <h3 className="font-display font-bold text-base lg:text-lg mb-2 text-white">
+                      <h3 className="font-display font-bold text-base lg:text-lg mb-1 text-white">
                         {member.name}
                       </h3>
-                      <p className="text-accent text-sm">{member.role}</p>
+                      <p className="text-accent text-sm font-medium">{member.role}</p>
                     </div>
                   </div>
                 )
@@ -1343,13 +1349,9 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-12 lg:gap-16 mb-16 items-start">
             {/* Brand - Left */}
             <div className="md:col-span-1">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-accent/60 flex items-center justify-center shadow-lg shadow-accent/20">
-                  <Link2 className="w-6 h-6 text-black" />
-                </div>
-                <div className="font-display font-bold text-2xl tracking-tighter text-white">
-                  HackTheChain
-                </div>
+              <div className="flex items-center gap-2 mb-6">
+                <img src="/logo1.png" alt="Logo Icon" className="h-10 w-auto" />
+                <img src="/logo2.png" alt="HackTheChain" className="h-8 w-auto" />
               </div>
               <p className="text-muted-foreground leading-relaxed text-sm mb-6">
                 The biggest hackathon in Kota City, presented by IIIT Kota in
