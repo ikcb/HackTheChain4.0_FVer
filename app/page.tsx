@@ -26,6 +26,8 @@ import {
   Linkedin,
   Github,
   Mail,
+  Menu,
+  X,
 } from "lucide-react";
 
 function AnimatedCounter({
@@ -77,6 +79,7 @@ function AnimatedCounter({
 }
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [visibleSections, setVisibleSections] = useState<
     Record<string, boolean>
   >({});
@@ -188,7 +191,7 @@ export default function Home() {
     return () => window.removeEventListener("scroll", throttledHandleScroll);
   }, []);
 
-  const teamMembers = [
+  const teamMembers1 = [
     {
       name: "Sanidhya Madeshia",
       role: "Coordinator",
@@ -224,10 +227,18 @@ export default function Home() {
       role: "Lead Organizer",
       image: "/parth-lead.png",
     },
+  ];
+
+  const teamMembers2 = [
     {
-      name: "Divyam Saraf",
-      role: "Web Dev Lead",
-      image: "/divyam.png",
+      name: "Dhananjay Mangal",
+      role: "Social Media Lead",
+      image: "/dhananjay.png",
+    },
+    {
+      name: "Megh Kagadiya",
+      role: "Social Media Lead",
+      image: "/megh.png",
     },
     {
       name: "Satyam Rajawat",
@@ -240,24 +251,14 @@ export default function Home() {
       image: "/shyam.png",
     },
     {
+      name: "Divyam Saraf",
+      role: "Web Dev Lead",
+      image: "/divyam.png",
+    },
+    {
       name: "Aayush Mittal",
       role: "Web3 Lead",
       image: "/aayush.png",
-    },
-    {
-      name: "Dhananjay Mangal",
-      role: "Social Media Lead",
-      image: "/dhananjay.png",
-    },
-    {
-      name: "Megh Kagadiya",
-      role: "Social Media Lead",
-      image: "/megh.png",
-    },
-    {
-      name: "Gaurav",
-      role: "Cloud Lead",
-      image: "/gaurav.png",
     },
     {
       name: "Raghav Gupta",
@@ -274,10 +275,15 @@ export default function Home() {
       role: "ML Lead",
       image: "/ujjwal.png",
     },
+    {
+      name: "Gaurav",
+      role: "Cloud Lead",
+      image: "/gaurav.png",
+    },
   ];
-
-  const row1 = teamMembers.slice(0, 7);
-  const row2 = teamMembers.slice(7, 17);
+    
+  const row1 = teamMembers1.slice(0, 7);
+  const row2 = teamMembers2.slice(0,11);
 
   const faqData = [
     {
@@ -322,12 +328,12 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="fixed top-0 w-full bg-background/80 backdrop-blur-2xl border-b border-accent/20 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center relative">
           <div className="flex items-center gap-3">
             <img src="/logo1.png" alt="Logo Icon" className="h-10 w-auto" />
-            <img src="/logo2.png" alt="HackTheChain" className="h-8 w-auto" />
+            <img src="/logo2.png" alt="HackTheChain" className="h-8 w-auto max-[400px]:hidden" />
           </div>
-          <nav className="hidden md:flex gap-10 text-sm font-medium">
+          <nav className="hidden lg:flex gap-10 text-sm font-medium">
             <Link
               href="#about"
               className="text-muted-foreground hover:text-white transition-colors nav-link-underline"
@@ -359,11 +365,66 @@ export default function Home() {
               FAQ
             </Link>
           </nav>
-          <div className="flex gap-3">
+          <div className="flex gap-3 items-center">
             <button className="px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-accent via-accent to-accent/80 text-black rounded-full hover:shadow-lg hover:shadow-accent/40 hover:scale-105 transition-all duration-300">
               Register Now
             </button>
+            <button
+              className="lg:hidden p-2 text-white/80 hover:text-white transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        <div
+          className={`lg:hidden absolute top-full left-0 w-full bg-background/95 backdrop-blur-3xl border-b border-accent/20 transition-all duration-300 ease-in-out ${
+            isMobileMenuOpen
+              ? "opacity-100 translate-y-0 visible"
+              : "opacity-0 -translate-y-4 invisible pointer-events-none"
+          }`}
+        >
+          <nav className="flex flex-col p-6 gap-6 text-center">
+            <Link
+              href="#about"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-lg font-medium text-muted-foreground hover:text-white transition-colors"
+            >
+              About
+            </Link>
+            <Link
+              href="#domains"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-lg font-medium text-muted-foreground hover:text-white transition-colors"
+            >
+              Tracks
+            </Link>
+            <Link
+              href="#timeline"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-lg font-medium text-muted-foreground hover:text-white transition-colors"
+            >
+              Timeline
+            </Link>
+            <Link
+              href="#prizes"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-lg font-medium text-muted-foreground hover:text-white transition-colors"
+            >
+              Prizes
+            </Link>
+            <Link
+              href="#faq"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-lg font-medium text-muted-foreground hover:text-white transition-colors"
+            >
+              FAQ
+            </Link>
+          </nav>
         </div>
       </header>
 
@@ -1213,7 +1274,7 @@ export default function Home() {
 
           {/* Row 1 - Scrolling Left */}
           <div className="relative mb-8">
-            <div className="flex animate-scroll-left hover:pause-none">
+            <div className="flex whitespace-nowrap animate-scroll-left hover:pause-none">
               {[...row1, ...row1].map(
                 (member, i) => (
                   <div key={i} className="flex-shrink-0 px-4">
@@ -1237,8 +1298,8 @@ export default function Home() {
           </div>
 
           {/* Row 2 - Scrolling Right */}
-          <div className="relative">
-            <div className="flex animate-scroll-right hover:pause-none">
+          <div className="relative mb-8">
+            <div className="flex whitespace-nowrap animate-scroll-right hover:pause-none">
               {[...row2, ...row2].map(
                 (member, i) => (
                   <div key={i} className="flex-shrink-0 px-4">
