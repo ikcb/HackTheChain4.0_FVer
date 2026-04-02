@@ -289,7 +289,7 @@ export default function Home() {
     {
       question: "When and where is HackTheChain taking place?",
       answer:
-        "HackTheChain 4.0 is held in Kota on Feb 2026 at IIIT Kota campus.",
+        "HackTheChain 4.0 is held in Kota on April 2026 at IIIT Kota campus.",
     },
     {
       question: "I can't come to Kota. What's in it for me?",
@@ -481,7 +481,7 @@ export default function Home() {
               <div className="grid grid-cols-3 gap-8 pt-8 border-t border-white/10">
                 <div>
                   <div className="text-2xl font-bold text-accent mb-2">
-                    ₹1,00,000
+                    ₹10,000
                   </div>
                   <p className="text-sm text-white/60">Prize Pool</p>
                 </div>
@@ -562,7 +562,7 @@ export default function Home() {
               Institute of Information Technology Kota (IIIT Kota) in
               association with Codebase IIIT Kota. This hybrid event will be
               hosted on Devfolio with a prize pool of{" "}
-              <span className="text-accent font-semibold">₹1,00,000</span>.
+              <span className="text-accent font-semibold">₹10,000</span>.
             </p>
 
             <p className="text-lg text-white/70 leading-relaxed mb-8 text-center max-w-4xl mx-auto">
@@ -706,23 +706,23 @@ export default function Home() {
             <div className="relative space-y-20 md:space-y-24">
               {[
                 {
-                  title: "Round 1",
-                  date: "21-02-2026",
-                  desc: "Registration starts for Round 1 HackTheChain 4.0",
+                  title: "Registration",
+                  date: "05-04-2026",
+                  desc: "Registration starts for HackTheChain 4.0",
                 },
                 {
-                  title: "Round 1 Result",
-                  date: "23-02-2026",
-                  desc: "Round 1 result declaration",
+                  title: "Round 1",
+                  date: "09-04-2026 2:00 AM ",
+                  desc: "First Evaluation Round Starts",
                 },
                 {
                   title: "Round 2",
-                  date: "23-02-2026",
+                  date: "09-04-2026 1:00 PM",
                   desc: "Presentation round starts",
                 },
                 {
                   title: "Final Result",
-                  date: "23-02-2026",
+                  date: "09-04-2026 6:00 PM",
                   desc: "Winner Announcement and Closing Ceremony",
                 },
               ].map((step, i) => {
@@ -949,21 +949,21 @@ export default function Home() {
                 title: "SUPREME",
                 icon: Trophy,
                 rank: "01",
-                amount: "₹45,000",
+                amount: "₹5,000",
               },
               {
                 place: "2nd Place",
                 title: "PRESTIGIOUS",
                 icon: Award,
                 rank: "02",
-                amount: "₹35,000",
+                amount: "₹3,000",
               },
               {
                 place: "3rd Place",
                 title: "RENOWNED",
                 icon: Medal,
                 rank: "03",
-                amount: "₹20,000",
+                amount: "₹2,000",
               },
             ].map((prize, i) => {
               const Icon = prize.icon;
@@ -1080,7 +1080,7 @@ export default function Home() {
               {
                 icon: Clock,
                 title: "Hackathon Format & Timeline",
-                desc: "30-hour non-stop coding event. Start: 21st Feb, 7:00 PM. End: 23rd Feb, 1:00 AM. Top 10 teams shortlisted after coding. Final Presentation: 23rd Feb, 9:00 AM.",
+                desc: "24-hour non-stop coding event. Start: 8th April, 6:00 PM. End: 9th April, 6:00 PM. Top 10 teams shortlisted after coding. Final Presentation: 9th April, 1:00 PM.",
               },
               {
                 icon: CheckCircle,
