@@ -457,7 +457,7 @@ export default function Home() {
                   CodeBase presents
                 </span>
               </div>
-              <h1 className="text-7xl lg:text-8xl font-display font-black leading-tight mb-8 tracking-tighter">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-black leading-tight mb-8 tracking-tighter">
                 <span className="bg-gradient-to-br from-white via-white to-accent/40 bg-clip-text text-transparent">
                   HackThe
                 </span>
@@ -478,21 +478,21 @@ export default function Home() {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
               </div>
-              <div className="grid grid-cols-3 gap-8 pt-8 border-t border-white/10">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 pt-8 border-t border-white/10 text-center sm:text-left">
                 <div>
-                  <div className="text-2xl font-bold text-accent mb-2">
+                  <div className="text-2xl lg:text-3xl font-bold text-accent mb-2">
                     ₹10,000
                   </div>
                   <p className="text-sm text-white/60">Prize Pool</p>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-white mb-2">
+                  <div className="text-2xl lg:text-3xl font-bold text-white mb-2">
                     Hybrid
                   </div>
                   <p className="text-sm text-white/60">Event Format</p>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-accent mb-2">
+                  <div className="text-2xl lg:text-3xl font-bold text-accent mb-2">
                     IIIT Kota
                   </div>
                   <p className="text-sm text-white/60">Hosted By</p>
@@ -539,7 +539,7 @@ export default function Home() {
             <span className="text-xs font-medium tracking-widest text-accent/60 uppercase">
               About the Event
             </span>
-            <h2 className="text-6xl lg:text-7xl font-display font-black tracking-tighter mt-4 mb-6 neon-heading-glow">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-black tracking-tighter mt-4 mb-6 neon-heading-glow">
               <span className="bg-gradient-to-r from-white via-white to-accent/40 bg-clip-text text-transparent">
                 Welcome to HackTheChain
               </span>
@@ -601,7 +601,7 @@ export default function Home() {
             <span className="text-xs font-medium tracking-widest text-accent/60 uppercase">
               Tracks
             </span>
-            <h2 className="text-6xl lg:text-7xl font-display font-black tracking-tighter mt-4 mb-6 neon-heading-glow">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-black tracking-tighter mt-4 mb-6 neon-heading-glow">
               <span className="bg-gradient-to-r from-white via-white to-accent/40 bg-clip-text text-transparent">
                 Choose Your Domain
               </span>
@@ -691,7 +691,7 @@ export default function Home() {
             <span className="text-xs font-medium tracking-widest text-accent/60 uppercase">
               Schedule
             </span>
-            <h2 className="text-6xl lg:text-7xl font-display font-black tracking-tighter mt-4 neon-heading-glow">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-black tracking-tighter mt-4 neon-heading-glow">
               <span className="bg-gradient-to-r from-white via-white to-accent/40 bg-clip-text text-transparent">
                 Event Timeline
               </span>
@@ -846,7 +846,7 @@ export default function Home() {
             <span className="text-xs font-medium tracking-widest text-accent/60 uppercase">
               Impact
             </span>
-            <h2 className="text-6xl lg:text-7xl font-display font-black tracking-tighter mt-4 neon-heading-glow">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-black tracking-tighter mt-4 neon-heading-glow">
               <span className="bg-gradient-to-r from-white via-white to-accent/40 bg-clip-text text-transparent">
                 By The Numbers
               </span>
@@ -932,7 +932,7 @@ export default function Home() {
             <span className="text-xs font-medium tracking-widest text-accent/60 uppercase">
               Rewards
             </span>
-            <h2 className="text-6xl lg:text-7xl font-display font-black tracking-tighter mt-4 mb-4 neon-heading-glow">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-black tracking-tighter mt-4 mb-4 neon-heading-glow">
               <span className="bg-gradient-to-r from-white via-white to-accent/40 bg-clip-text text-transparent">
                 Our Prizes
               </span>
@@ -950,6 +950,7 @@ export default function Home() {
                 icon: Trophy,
                 rank: "01",
                 amount: "₹5,000",
+                desc: "The pinnacle of achievement. Awarded to the team with the most outstanding, innovative, and impactful solution."
               },
               {
                 place: "2nd Place",
@@ -957,6 +958,7 @@ export default function Home() {
                 icon: Award,
                 rank: "02",
                 amount: "₹3,000",
+                desc: "A mark of true excellence. Awarded to the team that demonstrated exceptional technical skills and creative problem-solving."
               },
               {
                 place: "3rd Place",
@@ -964,6 +966,7 @@ export default function Home() {
                 icon: Medal,
                 rank: "03",
                 amount: "₹2,000",
+                desc: "An incredible accomplishment. Awarded to the team with a highly commendable and technically sound solution."
               },
             ].map((prize, i) => {
               const Icon = prize.icon;
@@ -1010,9 +1013,9 @@ export default function Home() {
                           {prize.place}
                         </p>
 
-                        {/* Placeholder Content */}
+                        {/* Prize Description */}
                         <p className="text-muted-foreground text-sm leading-relaxed mb-8 max-w-[250px]">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                          {prize.desc}
                         </p>
 
                         <div className="mt-auto w-full">
@@ -1053,7 +1056,7 @@ export default function Home() {
             <span className="text-xs font-medium tracking-widest text-accent/60 uppercase">
               Key Attributes
             </span>
-            <h2 className="text-6xl lg:text-7xl font-display font-black tracking-tighter mt-4 neon-heading-glow">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-black tracking-tighter mt-4 neon-heading-glow">
               <span className="bg-gradient-to-r from-white via-white to-accent/40 bg-clip-text text-transparent">
                 Rules and Guidelines
               </span>
@@ -1153,7 +1156,7 @@ export default function Home() {
             <span className="text-xs font-medium tracking-widest text-accent/60 uppercase">
               Key Attributes
             </span>
-            <h2 className="text-6xl lg:text-7xl font-display font-black tracking-tighter mt-4 neon-heading-glow">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-black tracking-tighter mt-4 neon-heading-glow">
               <span className="bg-gradient-to-r from-white via-white to-accent/40 bg-clip-text text-transparent">
                 Judging Criteria
               </span>
@@ -1265,7 +1268,7 @@ export default function Home() {
             <span className="text-xs font-medium tracking-widest text-accent/60 uppercase">
               The People Behind
             </span>
-            <h2 className="text-6xl lg:text-7xl font-display font-black tracking-tighter mt-4 neon-heading-glow">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-black tracking-tighter mt-4 neon-heading-glow">
               <span className="bg-gradient-to-r from-white via-white to-accent/40 bg-clip-text text-transparent">
                 Our Team
               </span>
@@ -1336,7 +1339,7 @@ export default function Home() {
             <span className="text-xs font-medium tracking-widest text-accent/60 uppercase">
               Got Questions?
             </span>
-            <h2 className="text-6xl lg:text-7xl font-display font-black tracking-tighter mt-4 neon-heading-glow">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-black tracking-tighter mt-4 neon-heading-glow">
               <span className="bg-gradient-to-r from-white via-white to-accent/40 bg-clip-text text-transparent">
                 Frequently Asked Questions
               </span>
