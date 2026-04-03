@@ -8,10 +8,13 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "HackTheChain 4.0 — The Biggest Hackathon in Kota City",
+  title: "HackTheChain 4.0",
   description:
     "Join the ultimate hackathon for developers of all skill levels! HackTheChain 4.0 presented by CodeBase IIIT Kota with a prize pool of ₹1,00,000.",
   generator: "v0.app",
+  icons: {
+    icon: "/head.png"
+  }
 }
 
 export default function RootLayout({

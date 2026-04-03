@@ -712,17 +712,17 @@ export default function Home() {
                 },
                 {
                   title: "Round 1",
-                  date: "09-04-2026 2:00 AM ",
+                  date: "10-04-2026 2:00 AM ",
                   desc: "First Evaluation Round Starts",
                 },
                 {
                   title: "Round 2",
-                  date: "09-04-2026 1:00 PM",
+                  date: "11-04-2026 1:00 PM",
                   desc: "Presentation round starts",
                 },
                 {
                   title: "Final Result",
-                  date: "09-04-2026 6:00 PM",
+                  date: "11-04-2026 6:00 PM",
                   desc: "Winner Announcement and Closing Ceremony",
                 },
               ].map((step, i) => {
@@ -1083,7 +1083,7 @@ export default function Home() {
               {
                 icon: Clock,
                 title: "Hackathon Format & Timeline",
-                desc: "24-hour non-stop coding event. Start: 8th April, 6:00 PM. End: 9th April, 6:00 PM. Top 10 teams shortlisted after coding. Final Presentation: 9th April, 1:00 PM.",
+                desc: "24-hour non-stop coding event. Start: 10th April, 6:00 PM. End: 11th April, 6:00 PM. Top 10 teams shortlisted after coding. Final Presentation: 11th April, 1:00 PM.",
               },
               {
                 icon: CheckCircle,
@@ -1447,23 +1447,23 @@ export default function Home() {
               </h4>
               <ul className="space-y-4 mb-6">
                 <li className="text-muted-foreground hover:text-accent transition-colors">
-                  <a href="mailto:hackthechain@iiitk.ac.in">hackthechain@iiitk.ac.in</a>
+                  <a href="codbase@iiitk.ac.in">codebase@iiitk.ac.in</a>
                 </li>
                 <li className="text-muted-foreground">
                   IIIT Kota Campus, Rajasthan
                 </li>
               </ul>
               <div className="flex gap-3">
-                <a href="#" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
+                {/* <a href="#" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
                    <Twitter className="w-4 h-4 text-accent" />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
+                </a> */}
+                <a href="https://www.instagram.com/iiitkota_codebase/" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
                    <Instagram className="w-4 h-4 text-accent" />
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
+                <a href="https://www.linkedin.com/company/codebase-iiitkota" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
                    <Linkedin className="w-4 h-4 text-accent" />
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
+                <a href="https://github.com/ikcb" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
                    <Github className="w-4 h-4 text-accent" />
                 </a>
               </div>
