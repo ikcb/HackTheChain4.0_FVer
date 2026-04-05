@@ -194,37 +194,37 @@ export default function Home() {
   const teamMembers1 = [
     {
       name: "Sanidhya Madeshia",
-      role: "Coordinator",
+      role: "Core Team",
       image: "/sanidhya-lead.png",
     },
     {
       name: "Yash Agarwal",
-      role: "Co-Coordinator",
+      role: "Core Team",
       image: "/yash-lead.png",
     },
     {
       name: "Ashmit Singh",
-      role: "Lead Organizer",
+      role: "Core Team",
       image: "/ashmit-lead.png",
     },
     {
       name: "Ayush Kumar",
-      role: "Lead Organizer",
+      role: "Core Team",
       image: "/aayush-lead.png",
     },
     {
       name: "Dipesh Mundotiya",
-      role: "Lead Organizer",
+      role: "Core Team",
       image: "/dipesh-lead.png",
     },
     {
       name: "Harsh Raj",
-      role: "Lead Organizer",
+      role: "Core Team",
       image: "/harsh-lead.png",
     },
     {
       name: "Parth Rudrawar",
-      role: "Lead Organizer",
+      role: "Core Team",
       image: "/parth-lead.png",
     },
   ];
@@ -232,52 +232,52 @@ export default function Home() {
   const teamMembers2 = [
     {
       name: "Dhananjay Mangal",
-      role: "Social Media Lead",
+      role: "Organizer",
       image: "/dhananjay.png",
     },
     {
       name: "Megh Kagadiya",
-      role: "Social Media Lead",
+      role: "Organizer",
       image: "/megh.png",
     },
     {
       name: "Satyam Rajawat",
-      role: "Web Dev Lead",
+      role: "Organizer",
       image: "/satyam.png",
     },
     {
       name: "Shyam Faujdar",
-      role: "Web Dev Lead",
+      role: "Organizer",
       image: "/shyam.png",
     },
     {
       name: "Divyam Saraf",
-      role: "Web Dev Lead",
+      role: "Organizer",
       image: "/divyam.png",
     },
     {
       name: "Aayush Mittal",
-      role: "Web3 Lead",
+      role: "Organizer",
       image: "/aayush.png",
     },
     {
       name: "Raghav Gupta",
-      role: "App dev Lead",
+      role: "Organizer",
       image: "/raghav.png",
     },
     {
       name: "Aakarsh Bibhaw",
-      role: "UI/UX Lead",
+      role: "Organizer",
       image: "/aakarsh.png",
     },
     {
       name: "ujjwal Sharma",
-      role: "ML Lead",
+      role: "Organizer",
       image: "/ujjwal.png",
     },
     {
       name: "Gaurav",
-      role: "Cloud Lead",
+      role: "Organizer",
       image: "/gaurav.png",
     },
   ];
