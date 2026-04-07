@@ -50,7 +50,7 @@ function AnimatedCounter({
           setHasStarted(true);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     if (ref.current) observer.observe(ref.current);
@@ -113,7 +113,7 @@ export default function Home() {
             observers[id].unobserve(element);
           }
         },
-        { threshold: 0.15 }
+        { threshold: 0.15 },
       );
 
       observers[id].observe(element);
@@ -167,7 +167,7 @@ export default function Home() {
       const index = Math.round(rawIndex);
       const clampedIndex = Math.min(
         Math.max(0, index),
-        timelineEventsCount - 1
+        timelineEventsCount - 1,
       );
 
       setActiveTimelineIndex(clampedIndex);
@@ -194,12 +194,12 @@ export default function Home() {
   const teamMembers1 = [
     {
       name: "Sanidhya Madeshia",
-      role: "Core Team",
+      role: "Coordinator",
       image: "/sanidhya-lead.png",
     },
     {
       name: "Yash Agarwal",
-      role: "Core Team",
+      role: "Co-Coordinator",
       image: "/yash-lead.png",
     },
     {
@@ -232,58 +232,58 @@ export default function Home() {
   const teamMembers2 = [
     {
       name: "Dhananjay Mangal",
-      role: "Organizer",
+      role: "Lead Organizer",
       image: "/dhananjay.png",
     },
     {
       name: "Megh Kagadiya",
-      role: "Organizer",
+      role: "Lead Organizer",
       image: "/megh.png",
     },
     {
       name: "Satyam Rajawat",
-      role: "Organizer",
+      role: "Lead Organizer",
       image: "/satyam.png",
     },
     {
       name: "Shyam Faujdar",
-      role: "Organizer",
+      role: "Lead Organizer",
       image: "/shyam.png",
     },
     {
       name: "Divyam Saraf",
-      role: "Organizer",
+      role: "Lead Organizer",
       image: "/divyam.png",
     },
     {
       name: "Aayush Mittal",
-      role: "Organizer",
+      role: "Lead Organizer",
       image: "/aayush.png",
     },
     {
       name: "Raghav Gupta",
-      role: "Organizer",
+      role: "Lead Organizer",
       image: "/raghav.png",
     },
     {
       name: "Aakarsh Bibhaw",
-      role: "Organizer",
+      role: "Lead Organizer",
       image: "/aakarsh.png",
     },
     {
       name: "ujjwal Sharma",
-      role: "Organizer",
+      role: "Lead Organizer",
       image: "/ujjwal.png",
     },
     {
       name: "Gaurav",
-      role: "Organizer",
+      role: "Lead Organizer",
       image: "/gaurav.png",
     },
   ];
-    
+
   const row1 = teamMembers1.slice(0, 7);
-  const row2 = teamMembers2.slice(0,11);
+  const row2 = teamMembers2.slice(0, 11);
 
   const faqData = [
     {
@@ -331,7 +331,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center relative">
           <div className="flex items-center gap-3">
             <img src="/logo1.png" alt="Logo Icon" className="h-10 w-auto" />
-            <img src="/logo2.png" alt="HackTheChain" className="h-8 w-auto max-[400px]:hidden" />
+            <img
+              src="/logo2.png"
+              alt="HackTheChain"
+              className="h-8 w-auto max-[400px]:hidden"
+            />
           </div>
           <nav className="hidden lg:flex gap-10 text-sm font-medium">
             <Link
@@ -366,9 +370,14 @@ export default function Home() {
             </Link>
           </nav>
           <div className="flex gap-3 items-center">
-            <button className="px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-accent via-accent to-accent/80 text-black rounded-full hover:shadow-lg hover:shadow-accent/40 hover:scale-105 transition-all duration-300">
+            <a
+              href="https://unstop.com/hackathons/hackthechain40-indian-institute-of-information-technology-iiit-kota-1670691?lb=Zor3lBpl&utm_medium=Share&utm_source=iiitcod83740&utm_campaign=Online_coding_challenge"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 text-sm font-semibold bg-gradient-to-r from-accent via-accent to-accent/80 text-black rounded-full hover:shadow-lg hover:shadow-accent/40 hover:scale-105 transition-all duration-300 inline-block"
+            >
               Register Now
-            </button>
+            </a>
             <button
               className="lg:hidden p-2 text-white/80 hover:text-white transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -473,10 +482,15 @@ export default function Home() {
                 your way to success at HackTheChain 4.0!
               </p>
               <div className="flex gap-4 mb-12 flex-col sm:flex-row">
-                <button className="group px-8 py-4 bg-gradient-to-r from-accent to-accent/90 text-black rounded-full hover:shadow-2xl hover:shadow-accent/50 hover:scale-105 transition-all duration-300 font-semibold text-lg flex items-center gap-3">
+                <a
+                  href="https://unstop.com/hackathons/hackthechain40-indian-institute-of-information-technology-iiit-kota-1670691?lb=Zor3lBpl&utm_medium=Share&utm_source=iiitcod83740&utm_campaign=Online_coding_challenge"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group px-8 py-4 bg-gradient-to-r from-accent to-accent/90 text-black rounded-full hover:shadow-2xl hover:shadow-accent/50 hover:scale-105 transition-all duration-300 font-semibold text-lg flex items-center gap-3 w-fit"
+                >
                   Register Now
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                </button>
+                </a>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 pt-8 border-t border-white/10 text-center sm:text-left">
                 <div>
@@ -638,13 +652,13 @@ export default function Home() {
             ].map((item, i) => {
               const Icon = item.icon;
               const isVisible = visibleSections["domains"];
-              
+
               // Variable width logic for 3:2 layout
               // First 3 items (0,1,2) -> width like grid-cols-3
               // Next 2 items (3,4) -> width approx 1/3 but centered? No, flex will handle it if we size them carefully.
               // To ensure 3 top, 2 bottom, we can enforce widths.
               // md:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-1.5rem)]
-              
+
               return (
                 <div
                   key={i}
@@ -733,17 +747,21 @@ export default function Home() {
                   <div
                     key={i}
                     className={`relative grid grid-cols-1 md:grid-cols-[1fr_4rem_1fr] items-center transition-all duration-700 ${
-                      isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                      isVisible
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-8"
                     }`}
                     style={{ transitionDelay: `${i * 100}ms` }}
                   >
                     {/* Left Side (Empty or Card) */}
-                    <div className={`order-2 md:order-1 flex md:justify-end ${isLeft ? "justify-center" : ""}`}>
+                    <div
+                      className={`order-2 md:order-1 flex md:justify-end ${isLeft ? "justify-center" : ""}`}
+                    >
                       {isLeft && (
                         <div className="w-full max-w-xl">
                           <div className="glassmorphism rounded-2xl p-8 md:p-10 hover:translate-y-[-5px] hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] transition-all duration-300 border border-accent/10 hover:border-accent/30 relative overflow-hidden group">
-                             {/* Content same as before */}
-                             <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-accent to-transparent opacity-50" />
+                            {/* Content same as before */}
+                            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-accent to-transparent opacity-50" />
                             <div className="flex items-center gap-4 mb-6">
                               <div className="w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
                                 <Calendar className="w-6 h-6 text-accent" />
@@ -767,7 +785,7 @@ export default function Home() {
 
                     {/* Center Column with Dot */}
                     <div className="order-1 md:order-2 flex justify-center h-full relative py-8 md:py-0">
-                       <div
+                      <div
                         className="timeline-dot relative"
                         style={{
                           width: "16px",
@@ -777,27 +795,29 @@ export default function Home() {
                       />
                       {/* Connector Line Logic per item? No, the main vertical line covers it. We can add small horizontal connectors here if needed. */}
                       {/* Horizontal Connector */}
-                       <div
-                          className="hidden md:block absolute top-1/2 h-px opacity-30"
-                          style={{
-                            left: isLeft ? "50%" : "auto",
-                            right: isLeft ? "auto" : "50%",
-                            width: "2rem", /* Short connector towards the card */
-                            background: isLeft
-                              ? "linear-gradient(to right, rgba(168, 85, 247, 0.25), transparent)"
-                              : "linear-gradient(to left, rgba(168, 85, 247, 0.25), transparent)",
-                            transform: "translateY(-50%)",
-                            zIndex: 1,
-                          }}
-                        />
+                      <div
+                        className="hidden md:block absolute top-1/2 h-px opacity-30"
+                        style={{
+                          left: isLeft ? "50%" : "auto",
+                          right: isLeft ? "auto" : "50%",
+                          width: "2rem" /* Short connector towards the card */,
+                          background: isLeft
+                            ? "linear-gradient(to right, rgba(168, 85, 247, 0.25), transparent)"
+                            : "linear-gradient(to left, rgba(168, 85, 247, 0.25), transparent)",
+                          transform: "translateY(-50%)",
+                          zIndex: 1,
+                        }}
+                      />
                     </div>
 
                     {/* Right Side (Card or Empty) */}
-                     <div className={`order-3 md:order-3 flex md:justify-start ${!isLeft ? "justify-center" : ""}`}>
+                    <div
+                      className={`order-3 md:order-3 flex md:justify-start ${!isLeft ? "justify-center" : ""}`}
+                    >
                       {!isLeft && (
                         <div className="w-full max-w-xl">
                           <div className="glassmorphism rounded-2xl p-8 md:p-10 hover:translate-y-[-5px] hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] transition-all duration-300 border border-accent/10 hover:border-accent/30 relative overflow-hidden group">
-                               {/* Content same as before */}
+                            {/* Content same as before */}
                             <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-accent to-transparent opacity-50" />
                             <div className="flex items-center gap-4 mb-6">
                               <div className="w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
@@ -950,7 +970,7 @@ export default function Home() {
                 icon: Trophy,
                 rank: "01",
                 amount: "₹5,000",
-                desc: "The pinnacle of achievement. Awarded to the team with the most outstanding, innovative, and impactful solution."
+                desc: "The pinnacle of achievement. Awarded to the team with the most outstanding, innovative, and impactful solution.",
               },
               {
                 place: "2nd Place",
@@ -958,7 +978,7 @@ export default function Home() {
                 icon: Award,
                 rank: "02",
                 amount: "₹3,000",
-                desc: "A mark of true excellence. Awarded to the team that demonstrated exceptional technical skills and creative problem-solving."
+                desc: "A mark of true excellence. Awarded to the team that demonstrated exceptional technical skills and creative problem-solving.",
               },
               {
                 place: "3rd Place",
@@ -966,7 +986,7 @@ export default function Home() {
                 icon: Medal,
                 rank: "03",
                 amount: "₹2,000",
-                desc: "An incredible accomplishment. Awarded to the team with a highly commendable and technically sound solution."
+                desc: "An incredible accomplishment. Awarded to the team with a highly commendable and technically sound solution.",
               },
             ].map((prize, i) => {
               const Icon = prize.icon;
@@ -985,51 +1005,51 @@ export default function Home() {
                     {/* Glow effect on hover */}
                     <div className="absolute -inset-0.5 bg-gradient-to-br from-accent/40 via-accent/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500" />
 
-                      {/* Main card */}
-                      <div className="relative glassmorphism rounded-3xl p-10 text-center transition-all duration-500 h-full flex flex-col items-center justify-start min-h-[500px]">
-                        {/* Rank number - subtle background */}
-                        <div className="absolute top-6 right-6 text-6xl font-display font-black text-accent/5 select-none">
-                          {prize.rank}
-                        </div>
+                    {/* Main card */}
+                    <div className="relative glassmorphism rounded-3xl p-10 text-center transition-all duration-500 h-full flex flex-col items-center justify-start min-h-[500px]">
+                      {/* Rank number - subtle background */}
+                      <div className="absolute top-6 right-6 text-6xl font-display font-black text-accent/5 select-none">
+                        {prize.rank}
+                      </div>
 
-                        {/* Icon */}
-                        <div className="relative mb-6 inline-flex items-center justify-center w-28 h-28 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 border-2 border-accent/30 group-hover:border-accent/50 group-hover:scale-110 transition-all duration-500">
-                          <Icon className="w-14 h-14 text-accent group-hover:scale-110 transition-transform duration-500" />
-                          <div className="absolute inset-0 rounded-2xl bg-accent/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
-                        </div>
+                      {/* Icon */}
+                      <div className="relative mb-6 inline-flex items-center justify-center w-28 h-28 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 border-2 border-accent/30 group-hover:border-accent/50 group-hover:scale-110 transition-all duration-500">
+                        <Icon className="w-14 h-14 text-accent group-hover:scale-110 transition-transform duration-500" />
+                        <div className="absolute inset-0 rounded-2xl bg-accent/10 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                      </div>
 
-                        {/* Badge */}
-                        <div className="text-xs font-medium tracking-widest text-accent/70 uppercase mb-3">
-                          HACKATHON WINNER
-                        </div>
+                      {/* Badge */}
+                      <div className="text-xs font-medium tracking-widest text-accent/70 uppercase mb-3">
+                        HACKATHON WINNER
+                      </div>
 
-                        {/* Title with glow */}
-                        <h3 className="text-4xl lg:text-5xl font-display font-black mb-3 neon-text-glow text-accent">
-                          {prize.title}
-                        </h3>
+                      {/* Title with glow */}
+                      <h3 className="text-4xl lg:text-5xl font-display font-black mb-3 neon-text-glow text-accent">
+                        {prize.title}
+                      </h3>
 
-                        {/* Place */}
-                        <p className="text-white/90 font-semibold text-xl mb-6">
-                          {prize.place}
-                        </p>
+                      {/* Place */}
+                      <p className="text-white/90 font-semibold text-xl mb-6">
+                        {prize.place}
+                      </p>
 
-                        {/* Prize Description */}
-                        <p className="text-muted-foreground text-sm leading-relaxed mb-8 max-w-[250px]">
-                          {prize.desc}
-                        </p>
+                      {/* Prize Description */}
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-8 max-w-[250px]">
+                        {prize.desc}
+                      </p>
 
-                        <div className="mt-auto w-full">
-                           {/* Decorative line */}
-                           <div className="w-full h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent mb-6" />
-                           
-                           {/* Money Box */}
-                           <div className="mx-auto inline-block px-8 py-3 bg-accent/10 border border-accent/20 rounded-xl">
-                              <span className="text-2xl font-mono font-bold text-accent">
-                                {prize.amount}
-                              </span>
-                           </div>
+                      <div className="mt-auto w-full">
+                        {/* Decorative line */}
+                        <div className="w-full h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent mb-6" />
+
+                        {/* Money Box */}
+                        <div className="mx-auto inline-block px-8 py-3 bg-accent/10 border border-accent/20 rounded-xl">
+                          <span className="text-2xl font-mono font-bold text-accent">
+                            {prize.amount}
+                          </span>
                         </div>
                       </div>
+                    </div>
                   </div>
                 </div>
               );
@@ -1168,37 +1188,43 @@ export default function Home() {
               {
                 title: "Innovation & Creativity",
                 desc: "Originality, novelty, and creative problem-solving.",
-                details: "We look for unique approaches to existing problems. Does your solution offer a fresh perspective? Is it creative in its implementation?",
+                details:
+                  "We look for unique approaches to existing problems. Does your solution offer a fresh perspective? Is it creative in its implementation?",
                 icon: Lightbulb,
               },
               {
                 title: "Technical Ability",
                 desc: "Proper use of technologies and solid implementation.",
-                details: "Assessment of the code quality, stack choice, and technical complexity. Does it work efficiently? Is the architecture sound?",
+                details:
+                  "Assessment of the code quality, stack choice, and technical complexity. Does it work efficiently? Is the architecture sound?",
                 icon: FileCode,
               },
               {
                 title: "Impact & Relevance",
                 desc: "Potential industry or societal impact.",
-                details: "How useful is this solution in the real world? Does it address a significant problem for a specific community or industry?",
+                details:
+                  "How useful is this solution in the real world? Does it address a significant problem for a specific community or industry?",
                 icon: Globe,
               },
               {
                 title: "User Experience",
                 desc: "Usability, clarity, and demonstration quality.",
-                details: "Is the interface intuitive? Is the user flow smooth? A great backend needs a usable frontend to be truly effective.",
+                details:
+                  "Is the interface intuitive? Is the user flow smooth? A great backend needs a usable frontend to be truly effective.",
                 icon: Users,
               },
               {
                 title: "Presentation",
                 desc: "Clear explanation, structure, and pitch delivery.",
-                details: "How well can you communicate your idea? The pitch should be concise, clear, and engaging to the judges.",
+                details:
+                  "How well can you communicate your idea? The pitch should be concise, clear, and engaging to the judges.",
                 icon: Award,
               },
               {
                 title: "Completion",
                 desc: "Project completeness and working state.",
-                details: "Is the MVP working? We value a finished core feature set over a half-baked massive platform.",
+                details:
+                  "Is the MVP working? We value a finished core feature set over a half-baked massive platform.",
                 icon: CheckCircle,
               },
             ].map((criteria, i) => {
@@ -1239,7 +1265,7 @@ export default function Home() {
                         <p className="text-white/80 text-base leading-relaxed mb-4">
                           {criteria.desc}
                         </p>
-                        
+
                         {/* Expanded Details */}
                         <div className="pt-4 border-t border-accent/20 w-full animate-in fade-in slide-in-from-bottom-2 duration-300">
                           <p className="text-sm text-accent/90 font-medium leading-relaxed">
@@ -1278,50 +1304,50 @@ export default function Home() {
           {/* Row 1 - Scrolling Left */}
           <div className="relative mb-8">
             <div className="flex whitespace-nowrap animate-scroll-left hover:pause-none">
-              {[...row1, ...row1].map(
-                (member, i) => (
-                  <div key={i} className="flex-shrink-0 px-4">
-                    <div className="w-56 lg:w-64 p-8 lg:p-10 border border-accent/10 rounded-2xl glassmorphism text-center">
-                      <div className="w-28 h-28 lg:w-32 lg:h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-accent/30">
-                        <img
-                          src={member.image || "/placeholder.svg"}
-                          alt={member.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <h3 className="font-display font-bold text-base lg:text-lg mb-1 text-white">
-                        {member.name}
-                      </h3>
-                      <p className="text-accent text-sm font-medium">{member.role}</p>
+              {[...row1, ...row1].map((member, i) => (
+                <div key={i} className="flex-shrink-0 px-4">
+                  <div className="w-56 lg:w-64 p-8 lg:p-10 border border-accent/10 rounded-2xl glassmorphism text-center">
+                    <div className="w-28 h-28 lg:w-32 lg:h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-accent/30">
+                      <img
+                        src={member.image || "/placeholder.svg"}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
+                    <h3 className="font-display font-bold text-base lg:text-lg mb-1 text-white">
+                      {member.name}
+                    </h3>
+                    <p className="text-accent text-sm font-medium">
+                      {member.role}
+                    </p>
                   </div>
-                )
-              )}
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Row 2 - Scrolling Right */}
           <div className="relative mb-8">
             <div className="flex whitespace-nowrap animate-scroll-right hover:pause-none">
-              {[...row2, ...row2].map(
-                (member, i) => (
-                  <div key={i} className="flex-shrink-0 px-4">
-                    <div className="w-56 lg:w-64 p-8 lg:p-10 border border-accent/10 rounded-2xl glassmorphism text-center">
-                      <div className="w-28 h-28 lg:w-32 lg:h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-accent/30">
-                        <img
-                          src={member.image || "/placeholder.svg"}
-                          alt={member.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <h3 className="font-display font-bold text-base lg:text-lg mb-1 text-white">
-                        {member.name}
-                      </h3>
-                      <p className="text-accent text-sm font-medium">{member.role}</p>
+              {[...row2, ...row2].map((member, i) => (
+                <div key={i} className="flex-shrink-0 px-4">
+                  <div className="w-56 lg:w-64 p-8 lg:p-10 border border-accent/10 rounded-2xl glassmorphism text-center">
+                    <div className="w-28 h-28 lg:w-32 lg:h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-accent/30">
+                      <img
+                        src={member.image || "/placeholder.svg"}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
+                    <h3 className="font-display font-bold text-base lg:text-lg mb-1 text-white">
+                      {member.name}
+                    </h3>
+                    <p className="text-accent text-sm font-medium">
+                      {member.role}
+                    </p>
                   </div>
-                )
-              )}
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -1402,7 +1428,11 @@ export default function Home() {
       <footer className="relative border-t border-accent/20 pt-20 pb-10 px-6 overflow-hidden">
         {/* Footer Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <img src="/images/back4.png" alt="Footer Background" className="w-full h-full object-cover opacity-30" />
+          <img
+            src="/images/back4.png"
+            alt="Footer Background"
+            className="w-full h-full object-cover opacity-30"
+          />
           <div className="absolute inset-0 bg-black/90" />
         </div>
 
@@ -1415,7 +1445,11 @@ export default function Home() {
             <div className="md:col-span-1">
               <div className="flex items-center gap-2 mb-6">
                 <img src="/logo1.png" alt="Logo Icon" className="h-10 w-auto" />
-                <img src="/logo2.png" alt="HackTheChain" className="h-8 w-auto" />
+                <img
+                  src="/logo2.png"
+                  alt="HackTheChain"
+                  className="h-8 w-auto"
+                />
               </div>
               <p className="text-muted-foreground leading-relaxed text-sm mb-6">
                 The biggest hackathon in Kota City, presented by IIIT Kota in
@@ -1425,19 +1459,49 @@ export default function Home() {
 
             {/* Quick Links - Center (Spanning 2 columns visually or just center alignment? Reference says Center. We'll use col-span-2 and flex to center) */}
             <div className="md:col-span-2 flex justify-center">
-                <div className="text-center md:text-left">
-                    <h4 className="font-display font-bold text-lg mb-6 text-white">
-                        Quick Links
-                    </h4>
-                    <div className="grid grid-cols-2 gap-x-12 gap-y-3">
-                        <Link href="#about" className="text-muted-foreground hover:text-accent transition-colors duration-300">About</Link>
-                        <Link href="#domains" className="text-muted-foreground hover:text-accent transition-colors duration-300">Tracks</Link>
-                        <Link href="#timeline" className="text-muted-foreground hover:text-accent transition-colors duration-300">Timeline</Link>
-                        <Link href="#prizes" className="text-muted-foreground hover:text-accent transition-colors duration-300">Prizes</Link>
-                        <Link href="#rules" className="text-muted-foreground hover:text-accent transition-colors duration-300">Rules</Link>
-                        <Link href="#faq" className="text-muted-foreground hover:text-accent transition-colors duration-300">FAQ</Link>
-                    </div>
+              <div className="text-center md:text-left">
+                <h4 className="font-display font-bold text-lg mb-6 text-white">
+                  Quick Links
+                </h4>
+                <div className="grid grid-cols-2 gap-x-12 gap-y-3">
+                  <Link
+                    href="#about"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-300"
+                  >
+                    About
+                  </Link>
+                  <Link
+                    href="#domains"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-300"
+                  >
+                    Tracks
+                  </Link>
+                  <Link
+                    href="#timeline"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-300"
+                  >
+                    Timeline
+                  </Link>
+                  <Link
+                    href="#prizes"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-300"
+                  >
+                    Prizes
+                  </Link>
+                  <Link
+                    href="#rules"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-300"
+                  >
+                    Rules
+                  </Link>
+                  <Link
+                    href="#faq"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-300"
+                  >
+                    FAQ
+                  </Link>
                 </div>
+              </div>
             </div>
 
             {/* Contact / Socials - Right */}
@@ -1457,14 +1521,23 @@ export default function Home() {
                 {/* <a href="#" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
                    <Twitter className="w-4 h-4 text-accent" />
                 </a> */}
-                <a href="https://www.instagram.com/iiitkota_codebase/" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
-                   <Instagram className="w-4 h-4 text-accent" />
+                <a
+                  href="https://www.instagram.com/iiitkota_codebase/"
+                  className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300"
+                >
+                  <Instagram className="w-4 h-4 text-accent" />
                 </a>
-                <a href="https://www.linkedin.com/company/codebase-iiitkota" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
-                   <Linkedin className="w-4 h-4 text-accent" />
+                <a
+                  href="https://www.linkedin.com/company/codebase-iiitkota"
+                  className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300"
+                >
+                  <Linkedin className="w-4 h-4 text-accent" />
                 </a>
-                <a href="https://github.com/ikcb" className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300">
-                   <Github className="w-4 h-4 text-accent" />
+                <a
+                  href="https://github.com/ikcb"
+                  className="w-10 h-10 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center hover:bg-accent/20 hover:border-accent/40 hover:scale-110 transition-all duration-300"
+                >
+                  <Github className="w-4 h-4 text-accent" />
                 </a>
               </div>
             </div>
@@ -1473,7 +1546,8 @@ export default function Home() {
           <div className="pt-8 border-t border-accent/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
             <p>© 2026 HackTheChain 4.0 — All Rights Reserved.</p>
             <p className="flex items-center gap-1">
-              Made with <span className="text-red-500 animate-pulse">❤️</span> by Divyam Saraf
+              Made with <span className="text-red-500 animate-pulse">❤️</span>{" "}
+              by Dev Team
             </p>
           </div>
         </div>
