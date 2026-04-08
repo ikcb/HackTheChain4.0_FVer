@@ -721,17 +721,17 @@ export default function Home() {
               {[
                 {
                   title: "Registration",
-                  date: "05-04-2026",
+                  date: "08-04-2026",
                   desc: "Registration starts for HackTheChain 4.0",
                 },
                 {
                   title: "Round 1",
-                  date: "10-04-2026 2:00 AM ",
-                  desc: "First Evaluation Round Starts",
+                  date: "10-04-2026 5:00 pm ",
+                  desc: " Round 1 Starts",
                 },
                 {
                   title: "Round 2",
-                  date: "11-04-2026 1:00 PM",
+                  date: "11-04-2026 9:00 AM",
                   desc: "Presentation round starts",
                 },
                 {
